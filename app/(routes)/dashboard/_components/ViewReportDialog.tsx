@@ -57,50 +57,50 @@ export function ViewReportDialog({record}:Props) {
                                 </div>
 
 
-                                <h2 className={`font-bold text-blue-500 text-lg `}>Summary:</h2>
-                                <hr className={`font-bold text-blue-500 mb-5`}/>
-                                <div className={`mt-5 mb-5 grid grid-cols-2`}>
-                                    <div className={`flex`}>
-                                        <h2>{record?.report?.summary || 'N/A'}</h2>
-                                    </div>
-                                </div>
+                                {/*<h2 className={`font-bold text-blue-500 text-lg `}>Summary:</h2>*/}
+                                {/*<hr className={`font-bold text-blue-500 mb-5`}/>*/}
+                                {/*<div className={`mt-5 mb-5 grid grid-cols-2`}>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2>{record?.report?.summary || 'N/A'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
 
-                                <h2 className={`font-bold text-blue-500 text-lg `}>Symptoms:</h2>
-                                <hr className={`font-bold text-blue-500 mb-5`}/>
-                                <div className={`mt-5 mb-5 grid grid-cols-2`}>
-                                    <div className={`flex`}>
-                                        <h2>{record?.report?.symptoms || 'N/A'}</h2>
-                                    </div>
-                                </div>
+                                {/*<h2 className={`font-bold text-blue-500 text-lg `}>Symptoms:</h2>*/}
+                                {/*<hr className={`font-bold text-blue-500 mb-5`}/>*/}
+                                {/*<div className={`mt-5 mb-5 grid grid-cols-2`}>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2>{record?.report?.symptoms || 'N/A'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
 
-                                <h2 className={`font-bold text-blue-500 text-lg `}>Duration and Severity:</h2>
-                                <hr className={`font-bold text-blue-500 mb-5`}/>
-                                <div className={`mt-5 mb-5 grid grid-cols-2`}>
-                                    <div className={`flex`}>
-                                        <h2><span className={`font-bold`}>Duration:</span> {record?.report?.duration || 'Not Specified'}</h2>
-                                    </div>
-                                    <div className={`flex`}>
-                                        <h2><span className={`font-bold`}>Severity:</span> {record?.report?.severity || 'Not Specified'}</h2>
-                                    </div>
-                                </div>
+                                {/*<h2 className={`font-bold text-blue-500 text-lg `}>Duration and Severity:</h2>*/}
+                                {/*<hr className={`font-bold text-blue-500 mb-5`}/>*/}
+                                {/*<div className={`mt-5 mb-5 grid grid-cols-2`}>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2><span className={`font-bold`}>Duration:</span> {record?.report?.duration || 'Not Specified'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2><span className={`font-bold`}>Severity:</span> {record?.report?.severity || 'Not Specified'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
-                                <h2 className={`font-bold text-blue-500 text-lg `}>Medications Mentioned:</h2>
-                                <hr className={`font-bold text-blue-500 mb-5`}/>
-                                <div className={`mt-5 mb-5 grid grid-cols-2`}>
-                                    <div className={`flex`}>
-                                        <h2>{record?.report?.medications || 'N/A'}</h2>
-                                    </div>
-                                </div>
+                                {/*<h2 className={`font-bold text-blue-500 text-lg `}>Medications Mentioned:</h2>*/}
+                                {/*<hr className={`font-bold text-blue-500 mb-5`}/>*/}
+                                {/*<div className={`mt-5 mb-5 grid grid-cols-2`}>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2>{record?.report?.medications || 'N/A'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
-                                <h2 className={`font-bold text-blue-500 text-lg `}>Recommendations:</h2>
-                                <hr className={`font-bold text-blue-500 mb-5`}/>
-                                <div className={`mt-5 mb-5 grid grid-cols-2`}>
-                                    <div className={`flex`}>
-                                        <h2>{record?.report?.recommendation || 'N/A'}</h2>
-                                    </div>
-                                </div>
+                                {/*<h2 className={`font-bold text-blue-500 text-lg `}>Recommendations:</h2>*/}
+                                {/*<hr className={`font-bold text-blue-500 mb-5`}/>*/}
+                                {/*<div className={`mt-5 mb-5 grid grid-cols-2`}>*/}
+                                {/*    <div className={`flex`}>*/}
+                                {/*        <h2>{record?.report?.recommendation || 'N/A'}</h2>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
                                 <hr className={`font-bold text-blue-500 mb-2`}/>
                                 <h2 className={`text-sm italic text-muted font-bold`}>Note: This report was generated by an AI Medical agent for informational purpose only.</h2>
