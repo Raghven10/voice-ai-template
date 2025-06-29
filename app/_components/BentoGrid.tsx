@@ -299,7 +299,7 @@ const items = [
         title: "AI based medical report Generation",
         description: (
             <span className="text-sm">
-        Experience the power of AI in generating medical reports based on your medical conversations with our medical specialist AI agents.
+        Experience the power of AI in generating medical reports by our medical specialist AI agents.
       </span>
         ),
         header: <SkeletonOne />,
@@ -328,27 +328,27 @@ const items = [
         className: "md:col-span-1",
         icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     },
-    {
-        title: "Sentiment Analysis",
-        description: (
-            <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
-      </span>
-        ),
-        header: <SkeletonFour />,
-        className: "md:col-span-2",
-        icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    },
+    // {
+    //     title: "Sentiment Analysis",
+    //     description: (
+    //         <span className="text-sm">
+    //     Understand the sentiment of your text with AI analysis.
+    //   </span>
+    //     ),
+    //     header: <SkeletonFour />,
+    //     className: "md:col-span-2",
+    //     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    // },
 
-    {
-        title: "Text Summarization",
-        description: (
-            <span className="text-sm">
-        Summarize your lengthy documents with AI technology.
-      </span>
-        ),
-        header: <SkeletonFive />,
-        className: "md:col-span-1",
-        icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
-    },
+    // {
+    //     title: "Text Summarization",
+    //     description: (
+    //         <span className="text-sm">
+    //     Summarize your lengthy documents with AI technology.
+    //   </span>
+    //     ),
+    //     header: <SkeletonFive />,
+    //     className: "md:col-span-1",
+    //     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+    // },
 ];
