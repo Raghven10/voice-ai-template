@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Medical AI Voice Agent App",
-  description: "AI based voice agent for medical consultations and healthcare",
+  title: "Umbrella AI",
+  description: "AI based research assistant tool",
 };
 
 export default function RootLayout({

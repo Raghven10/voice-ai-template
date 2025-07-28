@@ -3,6 +3,7 @@ import {UserButton} from "@clerk/nextjs";
 import Link from "next/link";
 import {AmbulanceIcon, BriefcaseMedical, HospitalIcon, Stethoscope, StethoscopeIcon} from "lucide-react";
 import {IconMedicalCross, IconMedicalCrossCircle, IconReportMedical} from "@tabler/icons-react";
+import {SidebarTrigger} from "@/components/ui/sidebar";
 
 const menuOptions = [
     {
@@ -28,17 +29,17 @@ const menuOptions = [
     {
         id:5,
         name: "Profile",
-        href: "/profile",
+        href: "/dashboard/profile",
     },
 ];
 
 function AppHeader() {
     return (
-        <div className="flex justify-between shadow py-4 items-center px-10 md:px-20 lg:px-40">
+        <div className="flex justify-between shadow py-4 items-center md:px-0 lg:px-5 min-w-full">
             {/*<Image src="/logo.svg" alt="Logo" width={220} height={120} />*/}
-            <div className={`flex items-center text-2xl`}>
-                <Stethoscope  className={`text-blue-600-400 font-bold text-4xl`}/>
-                <h2 className="font-bold text-2xl px-5 text-blue-600">  Medical <span className={`text-purple-400`}>AI Voice Agent</span></h2>
+            <div className={`flex items-center text-4xl`}>
+                <SidebarTrigger />
+
             </div>
 
             <div className="hidden md:flex gap-12 items-center">
