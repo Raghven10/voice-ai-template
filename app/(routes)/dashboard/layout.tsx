@@ -1,3 +1,4 @@
+"use client"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import {AppSidebar} from "@/app/(routes)/dashboard/_components/AppSidebar";
 import AppHeader from "@/app/(routes)/dashboard/_components/AppHeader";

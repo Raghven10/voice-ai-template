@@ -1,15 +1,19 @@
 import {NextRequest, NextResponse} from "next/server";
-import {db} from "@/config/db";
+import {db} from "@/db/db.tsx";
 import {consultationTable} from "@/config/schema";
-import {currentUser} from "@clerk/nextjs/server";
+import { getServerSession } from "next-auth";
+
+
 import {v4 as uuid4} from "uuid";
 import {desc, eq} from "drizzle-orm";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route.tsx";
 
 export async function POST(req: NextRequest) {
     try{
         const {notes, selectedDoctor} = await req.json();
-        const user = await currentUser();
+        const session = await getServerSession(authOptions);
         const sessionId = uuid4();
+        const user = session?.user?.email
         console.log("user:", user)
 
         const result = await db.insert(consultationTable).values({
@@ -18,7 +22,7 @@ export async function POST(req: NextRequest) {
             notes: notes,
             selectedDoctor: selectedDoctor,
             createdAt: (new Date()).toString(),
-            createdBy: user?.primaryEmailAddress?.emailAddress,
+            createdBy: user,
             // @ts-ignore
         }).returning({consultationTable})
         return NextResponse.json(result[0]?.consultationTable)
@@ -31,7 +35,8 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
     const {searchParams} = new URL(req.url);
     const sessionId = searchParams.get('sessionId');
-    const user = await currentUser();
+    const session = await getServerSession(authOptions);
+    const user = session?.user?.email
 
    if(sessionId=='all') {
        const result = await db.select()

@@ -5,7 +5,7 @@ import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {IconArrowRight} from "@tabler/icons-react";
 import {Badge} from "@/components/ui/badge";
-import {useAuth} from "@clerk/nextjs";
+
 
 
 export type doctorAgent = {
@@ -24,7 +24,6 @@ type props = {
 
 function DoctorAgentCard({doctorAgent}:props) {
 
-    const {has} = useAuth();
     //@ts-ignore
     const paidUser = has && has({plan: 'pro'})
 

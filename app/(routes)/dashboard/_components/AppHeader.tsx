@@ -1,8 +1,5 @@
-import Image from "next/image";
-import {UserButton} from "@clerk/nextjs";
+
 import Link from "next/link";
-import {AmbulanceIcon, BriefcaseMedical, HospitalIcon, Stethoscope, StethoscopeIcon} from "lucide-react";
-import {IconMedicalCross, IconMedicalCrossCircle, IconReportMedical} from "@tabler/icons-react";
 import {SidebarTrigger} from "@/components/ui/sidebar";
 
 const menuOptions = [
@@ -45,11 +42,11 @@ function AppHeader() {
             <div className="hidden md:flex gap-12 items-center">
                 {menuOptions.map((option, index) => (
                     <Link key={index} href={option.href}>
-                        <h2 className="hover:font-bold">{option.name}</h2>
+                        <h2 className="hover:font-bold font-semibold dark:text-white">{option.name}</h2>
                     </Link>
                 ))}
             </div>
-            <UserButton />
+
 
         </div>
     )

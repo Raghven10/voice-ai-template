@@ -53,7 +53,7 @@ function AddNewSessionDialog() {
     return (
         <Dialog>
             <DialogTrigger>
-                <Button>Start Consultation <IconArrowRight /></Button>
+                <Button>Connect Now <IconArrowRight /></Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
