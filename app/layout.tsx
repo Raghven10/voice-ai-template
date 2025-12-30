@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-import {Toaster} from "@/components/ui/sonner";
-
-import { SessionProvider } from "next-auth/react"
 import {Providers} from "@/provider.tsx";
+import {Toaster} from "sonner";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +32,7 @@ export default function RootLayout({
           >
           <Providers>
               {children}
-              <Toaster />
+              <Toaster position="top-center" expand={true} richColors closeButton/>
           </Providers>
           </body>
         </html>

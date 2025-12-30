@@ -1,4 +1,4 @@
-import HistoryList from "@/app/(routes)/dashboard/_components/HistoryList";
+import HistoryList from "@/app/(routes)/dashboard/_components/common/HistoryList.tsx";
 
 
 function HistoryPage() {

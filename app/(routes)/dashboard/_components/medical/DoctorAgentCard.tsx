@@ -2,9 +2,9 @@
 "use client"
 
 import Image from "next/image";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/ui/button.tsx";
 import {IconArrowRight} from "@tabler/icons-react";
-import {Badge} from "@/components/ui/badge";
+import {Badge} from "@/components/ui/badge.tsx";
 
 
 

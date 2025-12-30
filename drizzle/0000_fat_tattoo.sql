@@ -23,6 +23,17 @@ CREATE TABLE "assignments" (
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "consultations" (
+	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "consultations_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
+	"sessionId" varchar(255) NOT NULL,
+	"notes" varchar NOT NULL,
+	"selectedDoctor" json,
+	"conversation" json,
+	"report" json,
+	"createdAt" varchar NOT NULL,
+	"created_by" uuid NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "conversations" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"livekit_room_sid" varchar(128),
@@ -83,15 +94,17 @@ CREATE TABLE "user_app_access" (
 CREATE TABLE "users" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"auth_sub" varchar(255) NOT NULL,
-	"email" varchar(320),
+	"email" varchar(320) NOT NULL,
 	"display_name" varchar(200),
 	"primary_role" "role_enum" DEFAULT 'user' NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
-	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
 ALTER TABLE "assignments" ADD CONSTRAINT "assignments_escalation_id_escalations_id_fk" FOREIGN KEY ("escalation_id") REFERENCES "public"."escalations"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "assignments" ADD CONSTRAINT "assignments_assignee_user_id_users_id_fk" FOREIGN KEY ("assignee_user_id") REFERENCES "public"."users"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "consultations" ADD CONSTRAINT "consultations_created_by_users_id_fk" FOREIGN KEY ("created_by") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "conversations" ADD CONSTRAINT "conversations_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "conversations" ADD CONSTRAINT "conversations_application_id_applications_id_fk" FOREIGN KEY ("application_id") REFERENCES "public"."applications"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "escalations" ADD CONSTRAINT "escalations_conversation_id_conversations_id_fk" FOREIGN KEY ("conversation_id") REFERENCES "public"."conversations"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint

@@ -71,9 +71,6 @@ export function HomeInner() {
         return false;
     }, [wsUrl]);
 
-    // @ts-ignore
-    // @ts-ignore
-    // @ts-ignore
     return (
         <>
             <Head>

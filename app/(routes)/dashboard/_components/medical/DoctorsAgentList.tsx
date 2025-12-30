@@ -1,5 +1,5 @@
-import {AIDoctorAgents} from "@/shared/list";
-import DoctorAgentCard from "@/app/(routes)/dashboard/_components/DoctorAgentCard";
+import {AIDoctorAgents} from "@/shared/list.tsx";
+import DoctorAgentCard from "@/app/(routes)/dashboard/_components/medical/DoctorAgentCard.tsx";
 
 function DoctorsAgentList() {
     return (

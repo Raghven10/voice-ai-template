@@ -1,8 +1,8 @@
 
 import Image from "next/image";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/ui/button.tsx";
 import {IconArrowRight} from "@tabler/icons-react";
-import {doctorAgent} from "@/app/(routes)/dashboard/_components/DoctorAgentCard";
+import {doctorAgent} from "@/app/(routes)/dashboard/_components/medical/DoctorAgentCard.tsx";
 
 
 type props = {

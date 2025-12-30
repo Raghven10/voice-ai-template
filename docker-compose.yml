@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Database
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: helpdesk_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-helpdesk}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # ---------------------------------------------------------------------------
+  # Authentication (Keycloak)
+  # ---------------------------------------------------------------------------
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.0
+    container_name: helpdesk_keycloak
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-helpdesk}
+      KC_DB_USERNAME: ${POSTGRES_USER:-postgres}
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      KC_HOSTNAME: localhost
+      KC_HTTP_ENABLED: "true"
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+
+  # ---------------------------------------------------------------------------
+  # WebRTC / Voice (LiveKit)
+  # ---------------------------------------------------------------------------
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: helpdesk_livekit
+    command: --config /etc/livekit.yaml
+    restart: unless-stopped
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882/udp"
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml
+    environment:
+      - "LIVEKIT_KEYS=${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}"
+
+  # ---------------------------------------------------------------------------
+  # STT / TTS (Speaches.ai - OpenAI compatible API)
+  # ---------------------------------------------------------------------------
+  speaches:
+    image: speaches/speaches
+    container_name: helpdesk_speaches
+    restart: unless-stopped
+    ports:
+      - "8001:8000"
+    volumes:
+      - speaches_data:/data
+    # Ensure you have model weights mapped if offline, or it tries to download
+    # environment:
+    #   - HF_HOME=/data/cache
+
+    # ---------------------------------------------------------------------------
+    # LLM Inference (Ollama)
+    # ---------------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama
+    container_name: helpdesk_ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  postgres_data:
+  keycloak_data:
+  speaches_data:
+  ollama_data:

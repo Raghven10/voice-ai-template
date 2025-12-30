@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button.tsx"
 import {
     Dialog,
     DialogClose,
@@ -8,8 +8,8 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import {SessionDetail} from "@/app/(routes)/dashboard/medical-agent/[sessionId]/page";
+} from "@/components/ui/dialog.tsx"
+import {SessionDetail} from "@/app/(routes)/medical/medical-agent/[sessionId]/page.tsx";
 import moment from "moment";
 
 type Props = {

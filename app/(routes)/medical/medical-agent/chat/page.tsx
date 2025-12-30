@@ -1,4 +1,4 @@
-import ChatBox from "@/app/(routes)/dashboard/_components/ChatBox";
+import ChatBox from "@/app/(routes)/dashboard/_components/common/ChatBox.tsx";
 
 function Page() {
     return (

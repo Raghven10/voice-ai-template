@@ -90,3 +90,46 @@ export const AIDoctorAgents = [
         subscriptionRequired: true
     }
 ];
+
+
+export const DevelopersList = [
+    {
+        id: 1,
+        specialist: "App-1",
+        description: "Helps with queries on App-1.",
+        image: "/doctors/doctor1.png",
+        agentPrompt: "You are a friendly App Developer of app-1. Greet the user and quickly ask what problems they’re experiencing. Keep responses short and helpful.",
+        voiceId: "will",
+        subscriptionRequired: false
+    },
+    {
+        id: 2,
+        specialist: "App-1",
+        description: "Helps with queries on App-1.",
+        image: "/doctors/doctor1.png",
+        agentPrompt: "You are a friendly App Developer of app-1. Greet the user and quickly ask what problems they’re experiencing. Keep responses short and helpful.",
+        voiceId: "will",
+        subscriptionRequired: false
+    }
+];
+
+export const AppAgentList = [
+    {
+        id: 1,
+        specialist: "Agent-1",
+        description: "Helps with queries on App-1.",
+        image: "/doctors/doctor1.png",
+        agentPrompt: "You are a friendly App Developer of app-1. Greet the user and quickly ask what problems they’re experiencing. Keep responses short and helpful.",
+        voiceId: "will",
+        subscriptionRequired: false
+    },
+    {
+        id: 2,
+        specialist: "Agent-2",
+        description: "Helps with queries on App-1.",
+        image: "/doctors/doctor1.png",
+        agentPrompt: "You are a friendly App Developer of app-1. Greet the user and quickly ask what problems they’re experiencing. Keep responses short and helpful.",
+        voiceId: "will",
+        subscriptionRequired: false
+    }
+];

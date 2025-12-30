@@ -1,8 +1,9 @@
 
 import {
     pgTable, uuid, text, timestamp, varchar, boolean, jsonb,
-    primaryKey, uniqueIndex, index
+    primaryKey, uniqueIndex, index,integer, json
 } from "drizzle-orm/pg-core";
+
 // import {
 //     roleEnum,
 //     conversationStatusEnum,
@@ -70,13 +71,11 @@ export const escalationStatusEnum = pgEnum("escalation_status_enum", [
 
 
 
-// Minimal user shadow table (Keycloak is source of truth)
 export const users = pgTable("users", {
-    id: uuid("id").primaryKey().defaultRandom(),         // internal UUID
-    authSub: varchar("auth_sub", { length: 255 }).notNull(), // Keycloak subject (sub)
-    email: varchar("email", { length: 320 }),
+    id: uuid("id").primaryKey().defaultRandom(),
+    authSub: varchar("auth_sub", { length: 255 }).notNull(),
+    email: varchar("email", { length: 320 }).notNull().unique(),  // FK will work now
     displayName: varchar("display_name", { length: 200 }),
-    // For convenience/routing; do NOT treat as source of truth
     primaryRole: roleEnum("primary_role").default("user").notNull(),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
@@ -196,3 +195,45 @@ export const tickets = pgTable("tickets", {
     assigneeIdx: index("ticket_assignee_idx").on(t.assignedUserId),
     statusIdx: index("ticket_status_idx").on(t.status),
 }));
+
+export const sessionTable = pgTable("sessions", {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    sessionId: varchar({ length: 255 }).notNull(),
+    notes: varchar().notNull(),
+    selectedAgent: json(),
+    conversation: json(),
+    report: json(),
+    createdAt: varchar().notNull(),
+    createdBy: uuid("created_by").notNull().references(() => users.id), // FK to UUID
+});
+
+
+// RAG: Help Manual Documents
+export const documents = pgTable("documents", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    applicationId: uuid("application_id").notNull()
+        .references(() => applications.id, { onDelete: "cascade" }),
+    title: varchar("title", { length: 255 }).notNull(),
+    filePath: varchar("file_path", { length: 512 }), // path to source file if local
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    appIdx: index("doc_app_idx").on(t.applicationId),
+}));
+
+// RAG: Document Chunks for vector search
+export const documentChunks = pgTable("document_chunks", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    documentId: uuid("document_id").notNull()
+        .references(() => documents.id, { onDelete: "cascade" }),
+    content: text("content").notNull(),
+    embedding: jsonb("embedding"), // Store as JSONB for now, can be cast to vector in raw SQL queries if pgvector is used
+    chunkIndex: integer("chunk_index").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    docIdx: index("chunk_doc_idx").on(t.documentId),
+}));
+
+
+
+

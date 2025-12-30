@@ -2,7 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 
 import {openai} from '@/config/openAIModel'
 import {consultationTable} from "@/config/schema";
-import {db} from "@/db/db.tsx";
+import {db} from "@/db/db.ts";
 import {eq} from "drizzle-orm";
 
 const REPORT_TEMPLATE=`You are a medical AI agent that just finished a voice conversation between AI medical agent and user. 

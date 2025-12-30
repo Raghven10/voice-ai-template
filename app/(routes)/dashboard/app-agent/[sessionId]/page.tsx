@@ -1,19 +1,21 @@
 "use client"
+
 import {useParams, useRouter} from "next/navigation";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Vapi from "@vapi-ai/web";
-import {doctorAgent} from "@/app/(routes)/dashboard/_components/DoctorAgentCard";
+import {agent} from "@/app/(routes)/dashboard/_components/helpdesk/AgentCard.tsx";
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {Circle, Loader2, PhoneCall, PhoneOff} from "lucide-react";
 import {toast} from "sonner";
+
 export type SessionDetail = {
     id: number,
     sessionId: string,
     notes: string,
     report: JSON,
-    selectedDoctor: doctorAgent,
+    selectedAgent: agent,
     createdAt: string;
     createdBy: string;
 }
@@ -23,7 +25,7 @@ type Messages = {
     text: string
 }
 
-function MedicalVoiceAgent(){
+function ApplicationVoiceAgent() {
     const {sessionId} = useParams();
     const [sessionDetail, setSessionDetail] = useState<SessionDetail>();
     const [vapiInstance, setVapiInstance] = useState<any>();
@@ -40,9 +42,9 @@ function MedicalVoiceAgent(){
 
     const GetSessionDetails = async () => {
         const result = await axios.get('/api/session-chat?sessionId=' + sessionId);
-        console.log(result.data);
+        console.log("result: ",result.data[0]);
         setSessionDetail(result.data[0]);
-        console.log("sessionDetail : "+sessionDetail);
+        console.log("sessionDetail : ",sessionDetail);
     }
 
     const StartCall = () => {
@@ -52,21 +54,21 @@ function MedicalVoiceAgent(){
 
         const VapiAgentConfig = {
             name: 'AI Voice Assistant',
-            firstMessage: 'Hello, I am your AI voice medical assistant. How can I help you today?',
+            firstMessage: 'Jai Hind Sir, welcome to AI HelpDesk. How can I help you today?',
             transcriber: {
                 provider: 'assembly-ai',
                 language: 'en',
             },
             voice: {
                 provider: 'playht',
-                voiceId: sessionDetail?.selectedDoctor?.voiceId,
+                voiceId: sessionDetail?.selectedAgent?.voiceId,
             },
             model:{
                 provider: 'openai',
                 model: 'gpt-3.5-turbo',
                 messages: [{
                     role:'system',
-                    content: sessionDetail?.selectedDoctor?.agentPrompt,
+                    content: sessionDetail?.selectedAgent?.agentPrompt,
                 }]
             }
         }
@@ -143,7 +145,7 @@ function MedicalVoiceAgent(){
     }
 
     return (
-        <div className="p-5 border rounded-3xl bg-secondary">
+        <div className="p-5 border rounded-3xl bg-secondary m-4 w-1/3">
             <div className="flex items-center justify-between">
                 <h2 className="p-1 px-2 border rounded-md flex gap-2 items-center">
                     <Circle className={`h-4 w-4 rounded-full ${callStarted ? 'bg-green-400' : 'bg-red-400'}`}/>{callStarted ? 'Connected...': 'Not Connected'}</h2>
@@ -151,34 +153,34 @@ function MedicalVoiceAgent(){
             </div>
             {sessionDetail &&
                 <div className="flex items-center flex-col mt-10">
-                    <Image src={sessionDetail?.selectedDoctor?.image}
-                           alt={sessionDetail?.selectedDoctor?.specialist}
+                    <Image src={sessionDetail?.selectedAgent?.image}
+                           alt={sessionDetail?.selectedAgent?.name}
                            width={220}
                            height={120}
                            className="h-[100px] w-[100px] object-cover rounded-full"
                     />
-                    <h2>{sessionDetail?.selectedDoctor?.specialist}</h2>
-                    <p className="text-sm text-gray-400">AI Medical Voice Agent</p>
+                    <h2>{sessionDetail?.selectedAgent?.name}</h2>
+                    <p className="text-sm text-gray-400">AI Voice Agent</p>
                     <div className="mt-32 overflow-y-auto h-[400px]">
                         {messages && messages?.slice(-4).map((message, index) => (
                             <h2 className="text-gray-400 p-2" key={index}>{message.role}: {message.text}</h2>
-                            ))
+                        ))
                         }
 
                         {liveTranscript && liveTranscript?.length >0  && <h2 className="text-lg">{currentRole}: {liveTranscript}</h2>}
 
                     </div> {
                     !callStarted ?
-                        <Button onClick={StartCall} className="mt-20" disabled={loading}>
+                        <Button onClick={StartCall} className="mt-20 cursor-pointer hover:scale-110 shimmer hover:bg-green-600" disabled={loading}>
                             {loading ? <Loader2 className="animate-spin"/> :<PhoneCall />} Start Call
                         </Button>:
                         <Button variant={'destructive'} onClick={endCall} className="mt-20" disabled={loading}>
                             {loading ? <Loader2 className="animate-spin"/> :<PhoneOff />}  Disconnect
                         </Button>
-                    }
+                }
                 </div>}
         </div>
     )
 }
 
-export default MedicalVoiceAgent;
+export default ApplicationVoiceAgent;

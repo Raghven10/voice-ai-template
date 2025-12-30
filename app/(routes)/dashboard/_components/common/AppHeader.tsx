@@ -1,6 +1,7 @@
 
 import Link from "next/link";
-import {SidebarTrigger} from "@/components/ui/sidebar";
+import {SidebarTrigger} from "@/components/ui/sidebar.tsx";
+import {signOut} from "next-auth/react";
 
 const menuOptions = [
     {
@@ -28,6 +29,7 @@ const menuOptions = [
         name: "Profile",
         href: "/dashboard/profile",
     },
+
 ];
 
 function AppHeader() {
@@ -45,6 +47,7 @@ function AppHeader() {
                         <h2 className="hover:font-bold font-semibold dark:text-white">{option.name}</h2>
                     </Link>
                 ))}
+                <button onClick={() => signOut()} className={`cursor-pointer font-semibold hover:scale-110 text-red-500 shadow-2xl bg-gray-200 p-2 rounded-lg`}>Sign out</button>
             </div>
 
 

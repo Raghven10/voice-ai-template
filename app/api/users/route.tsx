@@ -1,31 +1,26 @@
-import {NextRequest, NextResponse} from "next/server";
-import {currentUser} from "@clerk/nextjs/server";
-import {db} from "@/db/db.tsx";
-import {usersTable} from "@/config/schema";
-import {eq} from "drizzle-orm";
+// app/api/users/route.ts
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
-    const user = await currentUser();
+import { users } from "@/db/schema";
+import { requireAuth } from "@/lib/auth";
+import { eq } from "drizzle-orm";
+import {db} from "@/db/db.ts";
 
-    // check if a user already exists, if not Create new user
-    try{
-        const users = await db.select().from(usersTable).where(eq(usersTable.email, user?.primaryEmailAddress?.emailAddress!));
+// GET all users (admin only)
+export async function GET() {
+    const user = await requireAuth();
+    if (user.role !== "admin") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
-        // if a user doesn't exist, create a new user
-        if(users?.length == 0){
+    const allUsers = await db.select().from(users);
+    return NextResponse.json(allUsers);
+}
 
-            // @ts-ignore
-            const result= await db.insert(usersTable).values({
-                // @ts-ignore
-                name: user?.fullName,
-                email: user?.primaryEmailAddress?.emailAddress,
-                credits:10
-                // @ts-ignore
-            }).returning({usersTable})
-            return NextResponse.json(result[0]?.usersTable)
-        }
-        return NextResponse.json(users[0])
-    }catch (e){
-        return NextResponse.json({message: e})
-    }
+// POST create user (admin only)
+export async function POST(req: Request) {
+    const user = await requireAuth();
+    if (user.role !== "admin") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+    const body = await req.json();
+    const newUser = await db.insert(users).values(body).returning();
+    return NextResponse.json(newUser[0]);
 }

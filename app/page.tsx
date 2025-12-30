@@ -84,13 +84,13 @@ export default function Home() {
                     <Link
                         className="w-40 transform rounded-lg text-center bg-red-400 px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                         href={"/playground"}>
-                        Connect Now
+                        Medical
                     </Link>
 
                     <Link
                         className="w-40 transform rounded-lg text-center bg-cyan-400 px-2 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                         href={"/dashboard"}>
-                        Dashboard
+                        Helpdesk
                     </Link>
 
                 </motion.div>
