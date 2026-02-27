@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 *.idea
+./public/generated/*
+./public/uploads/*
+./public/voices/*
+./public/transcripts/*

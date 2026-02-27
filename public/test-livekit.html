@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LiveKit Connection Test</title>
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            font-family: system-ui, sans-serif;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #log {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 4px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+
+        .success {
+            color: #4ade80;
+        }
+
+        .error {
+            color: #ef4444;
+        }
+
+        .info {
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>LiveKit Connectivity Debugger</h1>
+    <p>The browser refused connection to 127.0.0.1. Try 'localhost' or check if you are on HTTPS.</p>
+
+    <div style="margin-bottom: 1rem;">
+        <button onclick="test('ws://127.0.0.1:7880')">Test 127.0.0.1:7880</button>
+        <button onclick="test('ws://localhost:7880')">Test localhost:7880</button>
+    </div>
+
+    <div id="status">Ready to test.</div>
+    <div id="log"></div>
+
+    <script>
+        function log(msg, type = 'info') {
+            const div = document.createElement('div');
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            div.className = type;
+            document.getElementById('log').prepend(div);
+        }
+
+        function test(url) {
+            document.getElementById('status').textContent = `Testing ${url}...`;
+            log(`Attempting connection to ${url}...`);
+
+            try {
+                const ws = new WebSocket(url);
+
+                ws.onopen = () => {
+                    document.getElementById('status').textContent = `✅ Connected to ${url}!`;
+                    document.getElementById('status').className = 'success';
+                    log(`Success! Connected to ${url}`, 'success');
+                    ws.close();
+                };
+
+                ws.onerror = (e) => {
+                    // WebSocket errors are often empty for security, but we know it failed.
+                    log(`Failed to connect to ${url}.`, 'error');
+                };
+
+                ws.onclose = (e) => {
+                    log(`Closed ${url} (Code: ${e.code})`);
+                };
+
+            } catch (e) {
+                log(`Exception for ${url}: ${e.message}`, 'error');
+            }
+        }
+    </script>
+</body>
+
+</html>

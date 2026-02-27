@@ -1,80 +1,29 @@
 "use client"
-import agentCard, { agent } from "@/app/(routes)/dashboard/_components/helpdesk/AgentCard.tsx";
-import AddNewSessionDialog from "@/app/(routes)/dashboard/_components/helpdesk/AddNewSessionDialog.tsx";
-import {Button} from "@/components/ui/button.tsx";
-import {useRouter} from "next/navigation";
-import SuggestedApplicationCard from "@/app/(routes)/dashboard/_components/helpdesk/SuggestedApplicationCard.tsx";
-import {useState} from "react";
-import {AIApplicationAgents} from "@/shared/app_list.tsx";
-import {Loader2} from "lucide-react";
-import axios from "axios";
-import {toast} from "sonner";
+import { useSession } from "next-auth/react";
+import { Loader2 } from "lucide-react";
+import AdminDashboard from "./_components/AdminDashboard.tsx";
+import UserDashboard from "./_components/UserDashboard.tsx";
 
+function DashboardContainer() {
+    const { data: session, status } = useSession();
 
-function Dashboard() {
-
-    const route = useRouter();
-    const navigateToDashboard = ()=> {
-        route.push("/playground");
+    if (status === "loading") {
+        return (
+            <div className="flex h-screen items-center justify-center">
+                <Loader2 className="animate-spin h-10 w-10 text-pink-600" />
+            </div>
+        );
     }
-    const [suggestedApplications, setSuggestedApplications] = useState<agent[]>();
-    const [selectedAgent, setSelectedAgent] = useState<agent>();
-    const [note, setNote] = useState<string>();
-    const [loading, setLoading] = useState<boolean>(false);
 
-    const router = useRouter();
-    const onStartConversation = async () => {
-        setLoading(true);
+    // Default to 'user' if role isn't explicitly set in session
+    const userRole = (session?.user as any)?.role || "user";
 
-        try {
-            const result = await axios.post("/api/session-chat", {
-                notes: note,
-                selectedAgent: selectedAgent,
-            });
+    if (userRole === "user") {
+        return <UserDashboard />;
+    }
 
-            if (result.data?.sessionId) {
-                toast.success("Redirecting you to the conversation room.")
-                router.push(`/dashboard/app-agent/${result.data.sessionId}`);
-            }
-            else {
-                toast.error("Could not start conversation. Please try again. ")
-            }
-        } catch (error: any) {
-            console.error(error);
-            toast.error("Could not start conversation. Please try again.")
-
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-
-            <main className="flex flex-col p-4">
-                <div className="flex items-center justify-between p-5">
-                    <h2 className="font-bold text-2xl">My Dashboard</h2>
-                    <AddNewSessionDialog />
-                </div>
-
-                <div className="grid grid-cols-3 gap-5">
-                    {AIApplicationAgents.map((appln, index) => (
-                        <div className="flex flex-col items-center gap-2">
-                            <SuggestedApplicationCard
-                                agent={appln}
-                                key={index}
-                                setSelectedAgent={() => setSelectedAgent(appln)}
-                                //@ts-ignore
-                                selectedAgent={selectedAgent}
-                            />
-                            <Button onClick={onStartConversation} disabled={!selectedAgent || loading}>
-                                {loading ? <Loader2 className="animate-spin" /> : "Start Conversation"}
-                            </Button>
-                        </div>
-                    ))}
-                </div>
-
-            </main>
-    )
+    // Admin, sysadmin, developer, dev_manager, etc.
+    return <AdminDashboard />;
 }
 
-export default Dashboard
+export default DashboardContainer;

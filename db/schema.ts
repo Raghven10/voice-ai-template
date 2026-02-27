@@ -1,7 +1,7 @@
 
 import {
-    pgTable, uuid, text, timestamp, varchar, boolean, jsonb,
-    primaryKey, uniqueIndex, index,integer, json
+    pgTable, uuid, text, timestamp, varchar, boolean, jsonb, vector,
+    primaryKey, uniqueIndex, index, integer, json
 } from "drizzle-orm/pg-core";
 
 // import {
@@ -77,11 +77,33 @@ export const users = pgTable("users", {
     email: varchar("email", { length: 320 }).notNull().unique(),  // FK will work now
     displayName: varchar("display_name", { length: 200 }),
     primaryRole: roleEnum("primary_role").default("user").notNull(),
+    activeRoleId: uuid("active_role_id"), // FK to roles.id
+    selectedVoiceId: uuid("selected_voice_id").references(() => customVoices.id), // Null = default voice
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 }, (t) => ({
     uniqAuthSub: uniqueIndex("users_auth_sub_uidx").on(t.authSub),
     emailIdx: index("users_email_idx").on(t.email),
+}));
+
+// Master table for roles
+export const roles = pgTable("roles", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: varchar("name", { length: 50 }).notNull().unique(),
+    description: text("description"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+// Junction table for user-roles (many-to-many)
+export const userRoles = pgTable("user_roles", {
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    roleId: uuid("role_id").notNull().references(() => roles.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    pk: primaryKey({ columns: [t.userId, t.roleId], name: "user_roles_pk" }),
+    userIdx: index("user_roles_user_idx").on(t.userId),
+    roleIdx: index("user_roles_role_idx").on(t.roleId),
 }));
 
 // Applications catalog
@@ -211,14 +233,17 @@ export const sessionTable = pgTable("sessions", {
 // RAG: Help Manual Documents
 export const documents = pgTable("documents", {
     id: uuid("id").primaryKey().defaultRandom(),
-    applicationId: uuid("application_id").notNull()
+    applicationId: uuid("application_id")
         .references(() => applications.id, { onDelete: "cascade" }),
+    userId: uuid("user_id").references(() => users.id, { onDelete: "cascade" }),
     title: varchar("title", { length: 255 }).notNull(),
+    content: text("content"),
     filePath: varchar("file_path", { length: 512 }), // path to source file if local
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 }, (t) => ({
     appIdx: index("doc_app_idx").on(t.applicationId),
+    userIdx: index("doc_user_idx").on(t.userId),
 }));
 
 // RAG: Document Chunks for vector search
@@ -227,13 +252,86 @@ export const documentChunks = pgTable("document_chunks", {
     documentId: uuid("document_id").notNull()
         .references(() => documents.id, { onDelete: "cascade" }),
     content: text("content").notNull(),
-    embedding: jsonb("embedding"), // Store as JSONB for now, can be cast to vector in raw SQL queries if pgvector is used
+    embedding: vector("embedding", { dimensions: 384 }), // pgvector 384 dims for all-MiniLM-L6-v2
     chunkIndex: integer("chunk_index").notNull(),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 }, (t) => ({
     docIdx: index("chunk_doc_idx").on(t.documentId),
 }));
 
+// In-app notifications/alerts
+export const notifications = pgTable("notifications", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").notNull()
+        .references(() => users.id, { onDelete: "cascade" }),
+    title: varchar("title", { length: 255 }).notNull(),
+    message: text("message").notNull(),
+    type: varchar("type", { length: 50 }).default("info").notNull(), // info, success, warning, error
+    ticketId: uuid("ticket_id")
+        .references(() => tickets.id, { onDelete: "set null" }),
+    isRead: boolean("is_read").default(false).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    userIdx: index("notif_user_idx").on(t.userId),
+    readIdx: index("notif_read_idx").on(t.isRead),
+}));
+
+// Custom cloned voices for users
+export const customVoices = pgTable("custom_voices", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    name: varchar("name", { length: 100 }).notNull(),
+    embeddingPath: varchar("embedding_path", { length: 512 }).notNull(), // path to the latents/audio file
+    previewUrl: varchar("preview_url", { length: 512 }),
+    isPublic: boolean("is_public").default(false).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    userIdx: index("custom_voice_user_idx").on(t.userId),
+}));
+
+export const apiKeys = pgTable("api_keys", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    name: varchar("name", { length: 100 }).notNull(),
+    key: varchar("key", { length: 255 }).notNull().unique(), // hashed or just unique
+    lastUsedAt: timestamp("last_used_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    userIdx: index("api_key_user_idx").on(t.userId),
+    keyIdx: index("api_key_idx").on(t.key),
+}));
 
 
 
+
+// Configurable Voice Agents (ElevenLabs-style entities)
+export const voiceAgents = pgTable("voice_agents", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    name: varchar("name", { length: 150 }).notNull(),
+    description: text("description"),
+    // Core AI Config
+    systemPrompt: text("system_prompt").default("You are a helpful assistant."),
+    language: varchar("language", { length: 10 }).default("en"),
+    // Voice Config
+    baseVoiceId: varchar("base_voice_id", { length: 100 }).notNull(), // can be system 'af_heart' or custom ID
+    voiceSettings: jsonb("voice_settings"), // stability, similarity, speed (if supported)
+    // Dynamic Traits
+    traits: jsonb("traits"), // e.g. [{ mood: 'angry', prompt: 'Talk aggressively', voiceOverride: '...' }]
+    // knowledgeBaseId removed
+    isPublic: boolean("is_public").default(false),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    userIdx: index("agent_user_idx").on(t.userId),
+}));
+
+export const agentDocuments = pgTable("agent_documents", {
+    agentId: uuid("agent_id").notNull()
+        .references(() => voiceAgents.id, { onDelete: "cascade" }),
+    documentId: uuid("document_id").notNull()
+        .references(() => documents.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => ({
+    pk: primaryKey({ columns: [t.agentId, t.documentId] }),
+    agentIdx: index("agent_docs_agent_idx").on(t.agentId),
+}));

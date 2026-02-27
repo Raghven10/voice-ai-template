@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+huggingface-hub
+pydantic
+piper-tts
+pathvalidate

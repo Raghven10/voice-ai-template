@@ -4,11 +4,11 @@ bind_addresses:
 rtc:
   tcp_port: 7881
   port_range_start: 50000
-  port_range_end: 60000
-  use_external_ip: false
+  port_range_end: 50200
+  use_external_ip: true
   # For local docker testing, getting the IP might be tricky. 
   # Often simpler to just use 127.0.0.1 for local dev if not accessed from other machines.
-  # external_ip: 127.0.0.1 
+ 
 
 keys:
   # This section will be overridden by the LIVEKIT_KEYS env var in docker-compose, 

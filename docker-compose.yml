@@ -5,7 +5,7 @@ services:
   # Database
   # ---------------------------------------------------------------------------
   postgres:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     container_name: helpdesk_postgres
     restart: always
     environment:
@@ -16,6 +16,18 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  # ---------------------------------------------------------------------------
+  # Message Broker (Redis)
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:alpine
+    container_name: helpdesk_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
 
   # ---------------------------------------------------------------------------
   # Authentication (Keycloak)
@@ -46,35 +58,37 @@ services:
   livekit:
     image: livekit/livekit-server:latest
     container_name: helpdesk_livekit
-    command: --config /etc/livekit.yaml
+    command: --config /etc/livekit.yaml --node-ip 127.0.0.1
     restart: unless-stopped
     ports:
       - "7880:7880"
       - "7881:7881"
       - "7882:7882/udp"
+      - "50000-50200:50000-50200/udp"
     volumes:
       - ./livekit.yaml:/etc/livekit.yaml
     environment:
       - "LIVEKIT_KEYS=${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}"
-
   # ---------------------------------------------------------------------------
   # STT / TTS (Speaches.ai - OpenAI compatible API)
   # ---------------------------------------------------------------------------
   speaches:
-    image: speaches/speaches
+    image: ghcr.io/speaches-ai/speaches:latest-cpu
     container_name: helpdesk_speaches
     restart: unless-stopped
     ports:
       - "8001:8000"
     volumes:
       - speaches_data:/data
-    # Ensure you have model weights mapped if offline, or it tries to download
-    # environment:
-    #   - HF_HOME=/data/cache
-
-    # ---------------------------------------------------------------------------
-    # LLM Inference (Ollama)
-    # ---------------------------------------------------------------------------
+      - ./speaches_config:/config
+    environment:
+      - WHISPER__MODEL=Systran/faster-whisper-small
+      - WHISPER__TTL=-1 # Never offload the model — keeps it permanently in memory
+      - PIPER_VOICE=hi_IN-vakyansh-medium
+      - KOKORO_VOICE=af_heart
+      # ---------------------------------------------------------------------------
+      # LLM Inference (Ollama)
+      # ---------------------------------------------------------------------------
   ollama:
     image: ollama/ollama
     container_name: helpdesk_ollama
@@ -84,8 +98,97 @@ services:
     volumes:
       - ollama_data:/root/.ollama
 
+  # ---------------------------------------------------------------------------
+  # Voice Cloning (XTTS API Server - OpenAI Compatible)
+  # ---------------------------------------------------------------------------
+  xtts:
+    image: daswer123/xtts-api-server:latest
+    container_name: helpdesk_xtts
+    restart: unless-stopped
+    ports:
+      - "8002:8020" # Open port 8020 in container, map to 8002 host
+    volumes:
+      - xtts_models:/app/models
+      - ./public/voices:/app/speakers
+      - ./public/voices:/app/example
+    environment:
+      - XTTS_API_KEY=dummy
+
+  # ---------------------------------------------------------------------------
+  # Object Storage (Minio)
+  # ---------------------------------------------------------------------------
+  minio:
+    image: minio/minio
+    container_name: helpdesk_minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Python Processing Service (FastAPI + Docling)
+  # ---------------------------------------------------------------------------
+  python_service:
+    build: ./python-service
+    container_name: helpdesk_python_service
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ai-helpdesk
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
+      - MINIO_USE_SSL=false
+    depends_on:
+      - postgres
+      - minio
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Dedicated Piper TTS Service (Native Indic Support)
+  # ---------------------------------------------------------------------------
+  piper-tts:
+    build: ./piper-service
+    container_name: helpdesk_piper_tts
+    restart: unless-stopped
+    ports:
+      - "8003:8003"
+    volumes:
+      - piper_models:/app/models
+
+  # ---------------------------------------------------------------------------
+  # AI4Bharat IndicF5 TTS — Fully Offline, Self-Hosted
+  # Supports: Hindi, Tamil, Telugu, Marathi, Bengali, Kannada, Malayalam, Gujarati, Punjabi, Odia
+  # Pre-download weights once (on an internet machine):
+  #   python scripts/download_models.py
+  # Then copy models/ folder to this server — runs fully offline from there.
+  # ---------------------------------------------------------------------------
+  indicf5-tts:
+    build: ./indicf5-service
+    container_name: helpdesk_indicf5_tts
+    restart: unless-stopped
+    ports:
+      - "8005:8005"
+    volumes:
+      # Bind-mount pre-downloaded IndicF5 weights (read-only)
+      - ./indicf5-service/models:/app/models:ro
+    environment:
+      - MODEL_DIR=/app/models/IndicF5
+    profiles:
+      - indic-tts # opt-in: docker compose --profile indic-tts up indicf5-tts
+
 volumes:
   postgres_data:
+  redis_data:
   keycloak_data:
   speaches_data:
   ollama_data:
+  xtts_models:
+  minio_data:
+  piper_models:

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LiveKit Advanced Test</title>
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            font-family: system-ui, sans-serif;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #log {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 4px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+
+        .success {
+            color: #4ade80;
+        }
+
+        .error {
+            color: #ef4444;
+        }
+
+        .info {
+            color: #aaa;
+        }
+
+        code {
+            background: #222;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>LiveKit End-to-End Tester</h1>
+    <p>This test fetches a real token from your API and attempts a full WebSocket handshake.</p>
+
+    <div style="margin-bottom: 1rem;">
+        <button onclick="runTest('127.0.0.1')">Test 127.0.0.1</button>
+        <button onclick="runTest('localhost')">Test localhost</button>
+    </div>
+
+    <div id="status">Ready.</div>
+    <div id="log"></div>
+
+    <script>
+        function log(msg, type = 'info') {
+            const div = document.createElement('div');
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            div.className = type;
+            const logEl = document.getElementById('log');
+            logEl.prepend(div);
+        }
+
+        async function runTest(host) {
+            const wsUrl = `ws://${host}:7880`;
+            const logPrefix = `[${host}]`;
+
+            log(`${logPrefix} Starting test...`);
+            document.getElementById('status').textContent = "Fetching token...";
+
+            try {
+                // 1. Fetch Token
+                const resp = await fetch('/api/livekit-token?sessionId=debug-session');
+                if (!resp.ok) throw new Error(`API returned ${resp.status}`);
+                const data = await resp.json();
+                if (!data.token) throw new Error("No token returned from API");
+
+                log(`${logPrefix} Token received. Connecting to WS...`);
+
+                // 2. Connect to LiveKit /rtc endpoint
+                // LiveKit protocol: /rtc?access_token=...&protocol=...
+                const connectUrl = `${wsUrl}/rtc?access_token=${data.token}&protocol=12&version=1.16.0`; // minimal params
+
+                const ws = new WebSocket(connectUrl);
+
+                ws.onopen = () => {
+                    log(`${logPrefix} ✅ WebSocket Connected! Network is fine.`, 'success');
+                    document.getElementById('status').textContent = "Connected!";
+                    ws.close();
+                };
+
+                ws.onerror = (e) => {
+                    log(`${logPrefix} ❌ WebSocket Error. Connection refused or blocked.`, 'error');
+                };
+
+                ws.onclose = (e) => {
+                    log(`${logPrefix} Closed. Code: ${e.code}, Reason: ${e.reason}`);
+                };
+
+            } catch (e) {
+                log(`${logPrefix} Exception: ${e.message}`, 'error');
+            }
+        }
+    </script>
+</body>
+
+</html>

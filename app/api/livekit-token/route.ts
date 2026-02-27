@@ -1,14 +1,27 @@
 import { NextResponse } from "next/server";
 import { AccessToken } from "livekit-server-sdk";
+import { RoomAgentDispatch, RoomConfiguration } from "@livekit/protocol";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // This API route issues a LiveKit token for the client
 export async function GET(req: Request) {
     try {
         const url = new URL(req.url);
-        const sessionId = url.searchParams.get("sessionId") || "default-session";
+        // FORCE distinct sessions for debugging to ensure Dispatch triggers every time
+        const uniqueId = Math.random().toString(36).substring(7);
+        const agentId = url.searchParams.get("agentId") ?? "";
+        // Embed agentId in room name so the worker can parse it: "agent-<uuid>-<random>"
+        const sessionId = agentId
+            ? `agent-${agentId}-${uniqueId}`
+            : url.searchParams.get("sessionId")
+                ? `${url.searchParams.get("sessionId")}-${uniqueId}`
+                : `session-${Date.now()}-${uniqueId}`;
 
-        // Identity could be user ID or random guest
-        const identity = "user-" + Math.floor(Math.random() * 100000);
+        const session = await getServerSession(authOptions);
+
+        // Use user email or ID as identity if authenticated, otherwise random guest
+        const identity = session?.user?.email || "guest-" + Math.floor(Math.random() * 100000);
 
         // Create token with server secret
         const at = new AccessToken(
@@ -27,9 +40,11 @@ export async function GET(req: Request) {
             canSubscribe: true,
         });
 
+
+
         const token = await at.toJwt();
 
-        return NextResponse.json({ token });
+        return NextResponse.json({ token, agentId: agentId || null });
     } catch (err: any) {
         console.error("Error creating LiveKit token:", err);
         return NextResponse.json(
