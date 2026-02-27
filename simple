@@ -1,0 +1,36 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=helpdesk
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/helpdesk
+KEYCLOAK_ADMIN=admin
+KEYCLOAK_ADMIN_PASSWORD=admin
+KEYCLOAK_ISSUER=http://localhost:8080/realms/myrealm
+KEYCLOAK_CLIENT_ID=helpdesk-app
+KEYCLOAK_CLIENT_SECRET=44iqHmcVtIyCKSRwp0AjMU1DRxRpIEyj
+LIVEKIT_API_KEY=devkey
+LIVEKIT_API_SECRET=secret
+LIVEKIT_URL=ws://localhost:7880
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=changeme_openssl_rand_base64_32
+OPENAI_BASE_URL=http://localhost:8001/v1
+OLLAMA_BASE_URL=http://localhost:11434
+NODE_ENV=development
+GROQ_MODEL=llama-3.1-8b-instant
+USERNAME=test
+PASSWORD=Test@12345
+TTS_MODEL="hi_IN-pratham-medium"
+STT_MODEL="Systran/faster-whisper-small"
+NEXT_PUBLIC_LIVEKIT_URL=ws://localhost:7880
+
+# ── Sarvam AI TTS (Bulbul v2) ─────────────────────────────────────
+# Get your free API key at: https://dashboard.sarvam.ai
+# Required to use sarvam:* voices in the Admin → Manage Assistants page
+SARVAM_API_KEY=
+
+# ── AI4Bharat IndicF5 / Dwani TTS (self-hosted, fully offline) ────
+# Request model access at: https://huggingface.co/ai4bharat/IndicF5
+# Start the service with: docker compose --profile offline-tts up dwani-tts
+HF_TOKEN=
+# ── Landing Page Branding ──────────────────────────────────────────
+NEXT_PUBLIC_APP_NAME="AI HelpDesk"
+NEXT_PUBLIC_COPYRIGHT_TEXT="© 2026 RK Jha. Powered by LLM."
