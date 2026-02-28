@@ -216,14 +216,14 @@ function CallControls({ onDisconnect }: { onDisconnect: () => void }) {
 // ─── Active Call View (inside LiveKitRoom) ─────────────────────
 function ActiveCallView({ onDisconnect }: { onDisconnect: () => void }) {
     return (
-        <div className="flex h-full w-full rounded-2xl border border-white/[0.06] bg-[#0a0a12] shadow-2xl overflow-hidden">
+        <div className="flex h-full w-full rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
             {/* Left: Main Call Area */}
             <div className="flex-1 flex flex-col relative overflow-y-auto">
                 {/* Top bar */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.04]">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
                     <div className="flex items-center gap-3">
                         <ConnectionBadge />
-                        <span className="text-xs text-slate-500 font-medium">AI Helpdesk Agent</span>
+                        <span className="text-xs text-muted-foreground font-medium">AI Helpdesk Agent</span>
                     </div>
                     <CallTimer />
                 </div>
@@ -252,7 +252,7 @@ function ActiveCallView({ onDisconnect }: { onDisconnect: () => void }) {
             </div>
 
             {/* Right: Transcript Sidebar */}
-            <div className="w-80 lg:w-96 border-l border-white/[0.04] bg-[#07070d]/80 backdrop-blur-sm hidden md:flex flex-col">
+            <div className="w-80 lg:w-96 border-l border-[var(--border)] bg-[var(--sidebar-bg)] backdrop-blur-sm hidden md:flex flex-col">
                 <TranscriptionOverlay />
             </div>
         </div>
@@ -330,8 +330,8 @@ export default function UserDashboard() {
                             <Headset className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                            <h1 className="text-2xl font-bold text-slate-100 mb-1">Welcome, {userName}</h1>
-                            <p className="text-slate-400 text-sm leading-relaxed">
+                            <h1 className="text-2xl font-bold text-foreground mb-1">Welcome, {userName}</h1>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
                                 Select your preferred assistant and language to begin
                             </p>
                         </div>
@@ -355,10 +355,10 @@ export default function UserDashboard() {
                 </div>
 
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-100 mb-1">
+                    <h1 className="text-2xl font-bold text-foreground mb-1">
                         {selectedAgent?.name}
                     </h1>
-                    <p className="text-slate-400 text-[15px] leading-relaxed">
+                    <p className="text-muted-foreground text-[15px] leading-relaxed">
                         Ready to connect. The conversation will be voice-powered and fully transcribed.
                     </p>
                 </div>
@@ -379,14 +379,14 @@ export default function UserDashboard() {
 
                     <button
                         onClick={() => setStep("select")}
-                        className="flex items-center justify-center gap-1.5 text-sm text-slate-500 hover:text-slate-300 transition-colors"
+                        className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Change assistant
                     </button>
                 </div>
 
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                     Requires microphone access · End-to-end encrypted
                 </p>
             </div>

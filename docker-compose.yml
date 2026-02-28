@@ -79,25 +79,13 @@ services:
     ports:
       - "8001:8000"
     volumes:
-      - speaches_data:/data
+      - ./models/speaches:/data
       - ./speaches_config:/config
     environment:
       - WHISPER__MODEL=Systran/faster-whisper-small
       - WHISPER__TTL=-1 # Never offload the model — keeps it permanently in memory
       - PIPER_VOICE=hi_IN-vakyansh-medium
       - KOKORO_VOICE=af_heart
-      # ---------------------------------------------------------------------------
-      # LLM Inference (Ollama)
-      # ---------------------------------------------------------------------------
-  ollama:
-    image: ollama/ollama
-    container_name: helpdesk_ollama
-    restart: always
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-
   # ---------------------------------------------------------------------------
   # Voice Cloning (XTTS API Server - OpenAI Compatible)
   # ---------------------------------------------------------------------------
@@ -108,7 +96,7 @@ services:
     ports:
       - "8002:8020" # Open port 8020 in container, map to 8002 host
     volumes:
-      - xtts_models:/app/models
+      - ./models/xtts:/app/models
       - ./public/voices:/app/speakers
       - ./public/voices:/app/example
     environment:
@@ -160,7 +148,7 @@ services:
     ports:
       - "8003:8003"
     volumes:
-      - piper_models:/app/models
+      - ./models/piper:/app/models
 
   # ---------------------------------------------------------------------------
   # AI4Bharat IndicF5 TTS — Fully Offline, Self-Hosted
@@ -177,7 +165,7 @@ services:
       - "8005:8005"
     volumes:
       # Bind-mount pre-downloaded IndicF5 weights (read-only)
-      - ./indicf5-service/models:/app/models:ro
+      - ./models/indicf5:/app/models:ro
     environment:
       - MODEL_DIR=/app/models/IndicF5
     profiles:
@@ -187,8 +175,4 @@ volumes:
   postgres_data:
   redis_data:
   keycloak_data:
-  speaches_data:
-  ollama_data:
-  xtts_models:
   minio_data:
-  piper_models:

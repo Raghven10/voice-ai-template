@@ -183,8 +183,8 @@ export default function VoiceLabPage() {
     return (
         <div className="h-full w-full p-6 space-y-8 animate-in fade-in duration-500">
             <div>
-                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 tracking-tight drop-shadow-sm">Voice Lab</h1>
-                <p className="text-slate-400 mt-2 text-lg font-light">
+                <h1 className="text-4xl font-black text-indigo-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-indigo-400 dark:to-cyan-400 tracking-tight drop-shadow-sm">Voice Lab</h1>
+                <p className="text-muted-foreground mt-2 text-lg font-light">
                     Experiment with your cloned voices using our advanced synthesis engine.
                 </p>
             </div>
@@ -192,17 +192,17 @@ export default function VoiceLabPage() {
             <div className="grid lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-6">
                     {/* Input Section */}
-                    <div className="group relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl overflow-hidden transition-all hover:border-white/20">
+                    <div className="group relative rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl shadow-2xl overflow-hidden transition-all hover:border-[var(--primary)]/30">
                         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 pointer-events-none" />
 
-                        <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                        <div className="p-6 border-b border-[var(--border)] flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
                                     <FileText className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-slate-200">Text Input</h3>
-                                    <p className="text-xs text-slate-500">Enter text or upload a script</p>
+                                    <h3 className="text-lg font-semibold text-foreground">Text Input</h3>
+                                    <p className="text-xs text-muted-foreground">Enter text or upload a script</p>
                                 </div>
                             </div>
 
@@ -215,7 +215,7 @@ export default function VoiceLabPage() {
                                     onChange={handleFileUpload}
                                 />
                                 <label htmlFor="file-upload">
-                                    <Button variant="outline" size="sm" className="bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer">
+                                    <Button variant="outline" size="sm" className="bg-muted/50 border-[var(--border)] text-muted-foreground hover:text-foreground hover:bg-muted transition-all cursor-pointer">
                                         <Upload className="w-4 h-4 mr-2" /> Upload Text
                                     </Button>
                                 </label>
@@ -225,13 +225,13 @@ export default function VoiceLabPage() {
                         <div className="p-6">
                             <Textarea
                                 placeholder="Type something here for the AI to read..."
-                                className="min-h-[300px] text-lg leading-relaxed bg-transparent border-none focus-visible:ring-0 text-slate-300 placeholder:text-slate-600 resize-none font-light"
+                                className="min-h-[300px] text-lg leading-relaxed bg-transparent border-none focus-visible:ring-0 text-foreground placeholder:text-muted-foreground resize-none font-light"
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
                             />
                         </div>
 
-                        <div className="bg-white/5 px-6 py-3 flex justify-between items-center text-xs text-slate-500 font-mono border-t border-white/5">
+                        <div className="bg-muted/30 px-6 py-3 flex justify-between items-center text-xs text-muted-foreground font-mono border-t border-[var(--border)]">
                             <span>Markdown Supported</span>
                             <span>{text.length} characters</span>
                         </div>
@@ -240,24 +240,24 @@ export default function VoiceLabPage() {
 
                 <div className="space-y-6">
                     {/* Controls Section */}
-                    <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl overflow-hidden h-fit sticky top-6">
+                    <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-xl shadow-2xl overflow-hidden h-fit sticky top-6">
                         <div className="p-6 space-y-6">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="p-2 rounded-lg bg-violet-500/20 text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                                     <Wand2 className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-slate-200">Control Panel</h3>
+                                    <h3 className="text-lg font-semibold text-foreground">Control Panel</h3>
                                 </div>
                             </div>
 
                             <div className="space-y-3">
-                                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Synthesis Engine</label>
+                                <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Synthesis Engine</label>
                                 <Select value={engine} onValueChange={(val: 'xtts' | 'piper') => setEngine(val)}>
-                                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-slate-200 focus:ring-indigo-500/50 h-10">
+                                    <SelectTrigger className="w-full bg-muted/50 border-[var(--border)] text-foreground focus:ring-indigo-500/50 h-10">
                                         <SelectValue placeholder="Select Engine" />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-slate-900 border-slate-800 text-slate-200">
+                                    <SelectContent className="bg-[var(--card)] border-[var(--border)] text-foreground">
                                         <SelectItem value="piper">Indic / Standard (High Quality TTS)</SelectItem>
                                         <SelectItem value="xtts">XTTS (Voice Cloning — GPU Required)</SelectItem>
                                     </SelectContent>
@@ -265,21 +265,21 @@ export default function VoiceLabPage() {
                             </div>
 
                             <div className="space-y-3">
-                                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Voice Model</label>
+                                <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Voice Model</label>
                                 <Select value={selectedVoice} onValueChange={setSelectedVoice}>
-                                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-slate-200 focus:ring-indigo-500/50 h-10">
+                                    <SelectTrigger className="w-full bg-muted/50 border-[var(--border)] text-foreground focus:ring-indigo-500/50 h-10">
                                         <SelectValue placeholder="Choose a voice" />
                                     </SelectTrigger>
-                                    <SelectContent className="bg-slate-900 border-slate-800 text-slate-200">
+                                    <SelectContent className="bg-[var(--card)] border-[var(--border)] text-foreground">
                                         {availableVoices.map(voice => (
-                                            <SelectItem key={voice.id} value={voice.id} className="focus:bg-white/10 focus:text-white">
+                                            <SelectItem key={voice.id} value={voice.id} className="focus:bg-muted focus:text-foreground">
                                                 <div className="flex items-center justify-between w-full gap-4">
                                                     <span>{voice.name}</span>
                                                     {voice.type === 'Cloned' && (
-                                                        <span className="text-[10px] bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-1.5 py-0.5 rounded font-medium tracking-wide">CLONE</span>
+                                                        <span className="text-[10px] bg-indigo-500/20 text-indigo-500 border border-indigo-500/30 px-1.5 py-0.5 rounded font-medium tracking-wide">CLONE</span>
                                                     )}
                                                     {voice.type === 'System' && (
-                                                        <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium tracking-wide">SYSTEM</span>
+                                                        <span className="text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium tracking-wide">SYSTEM</span>
                                                     )}
                                                 </div>
                                             </SelectItem>
@@ -310,13 +310,13 @@ export default function VoiceLabPage() {
                                 <div className="pt-6 border-t border-white/10 animate-in fade-in slide-in-from-top-4 duration-500">
                                     <div className="flex flex-col gap-4">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-widest text-[10px]">Result</h4>
-                                            <Button variant="ghost" size="icon" className="h-6 w-6 text-slate-500 hover:text-indigo-400 hover:bg-transparent">
+                                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest text-[10px]">Result</h4>
+                                            <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-indigo-500 hover:bg-transparent">
                                                 <Download className="w-4 h-4" />
                                             </Button>
                                         </div>
 
-                                        <div className="bg-black/40 rounded-xl p-4 flex items-center gap-4 justify-between border border-white/5 shadow-inner">
+                                        <div className="bg-[var(--background)] rounded-xl p-4 flex items-center gap-4 justify-between border border-[var(--border)] shadow-inner">
                                             <Button
                                                 size="icon"
                                                 className={`h-12 w-12 rounded-full shadow-lg shrink-0 transition-all ${isPlaying ? 'bg-red-500 hover:bg-red-600 shadow-[0_0_20px_rgba(239,68,68,0.4)]' : 'bg-emerald-500 hover:bg-emerald-600 shadow-[0_0_20px_rgba(16,185,129,0.4)]'}`}
@@ -331,7 +331,7 @@ export default function VoiceLabPage() {
                                                 ) : (
                                                     <div className="flex items-center gap-1 h-3 w-full justify-center opacity-30">
                                                         {[...Array(20)].map((_, i) => (
-                                                            <div key={i} className="w-1 bg-white rounded-full" style={{ height: `${Math.random() * 100}%` }} />
+                                                            <div key={i} className="w-1 bg-foreground rounded-full" style={{ height: `${Math.random() * 100}%` }} />
                                                         ))}
                                                     </div>
                                                 )}
@@ -352,14 +352,14 @@ export default function VoiceLabPage() {
                     </div>
 
                     {/* Tips Card */}
-                    <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-5">
+                    <div className="rounded-xl border border-blue-500/20 bg-blue-500/10 p-5">
                         <div className="flex gap-3">
                             <div className="mt-1">
-                                <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]" />
+                                <div className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]" />
                             </div>
                             <div>
-                                <h4 className="text-sm font-semibold text-blue-200 mb-1">Pro Tip</h4>
-                                <p className="text-xs text-blue-300/70 leading-relaxed">
+                                <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-1">Pro Tip</h4>
+                                <p className="text-xs text-blue-800/80 dark:text-blue-300/70 leading-relaxed">
                                     For best results with cloned voices, try to match the emotion and pacing of your original recording in the text you provide.
                                 </p>
                             </div>

@@ -130,41 +130,41 @@ export default function KnowledgeBasePage() {
     };
 
     return (
-        <div className="p-8 space-y-8 h-full overflow-y-auto animate-in fade-in duration-500">
+        <div className="p-8 space-y-8 animate-in fade-in duration-500">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 tracking-tight drop-shadow-sm">Knowledge Base</h1>
-                    <p className="text-slate-400 mt-2 text-lg font-light">
+                    <h1 className="text-4xl font-black text-emerald-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-emerald-400 dark:to-cyan-400 tracking-tight drop-shadow-sm">Knowledge Base</h1>
+                    <p className="text-muted-foreground mt-2 text-lg font-light">
                         Manage documents and resources for your AI agents.
                     </p>
                 </div>
-                <Button onClick={() => setIsUploadOpen(true)} className="bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20">
+                <Button onClick={() => setIsUploadOpen(true)} className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/20">
                     <Upload className="w-4 h-4 mr-2" /> Upload Document
                 </Button>
             </div>
 
-            <Card className="bg-white/5 border-white/10 backdrop-blur-md">
+            <Card className="bg-[var(--card)] border-none shadow-sm backdrop-blur-md">
                 <CardHeader>
-                    <CardTitle className="text-slate-200">Documents</CardTitle>
+                    <CardTitle className="text-foreground">Documents</CardTitle>
                     <CardDescription>Files available for RAG (Retrieval Augmented Generation).</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {isLoading ? (
-                        <div className="text-center py-10 text-slate-500 animate-pulse">Loading documents...</div>
+                        <div className="text-center py-10 text-muted-foreground animate-pulse">Loading documents...</div>
                     ) : docs.length === 0 ? (
-                        <div className="text-center py-10 text-slate-500">
+                        <div className="text-center py-10 text-muted-foreground">
                             No documents found. Upload a PDF or Text file to get started.
                         </div>
                     ) : (
                         <div className="grid gap-4">
                             {docs.map((doc: any) => (
-                                <div key={doc.id} className="flex items-center justify-between p-4 rounded-lg bg-black/40 border border-white/5 hover:border-emerald-500/30 transition-all group">
+                                <div key={doc.id} className="flex items-center justify-between p-4 rounded-lg bg-[var(--background)] shadow-sm hover:shadow-md transition-all group">
                                     <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-lg bg-emerald-500/10 text-emerald-400">
+                                        <div className="p-3 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                                             <FileText className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-slate-200">{doc.name}</h3>
+                                            <h3 className="font-semibold text-foreground">{doc.name}</h3>
                                             <div className="flex items-center gap-2 mt-1">
                                                 <Badge variant="outline" className={`text-[10px] uppercase border-0 
                                                     ${doc.status === 'completed' ? 'bg-emerald-500/20 text-emerald-400' :
@@ -173,12 +173,12 @@ export default function KnowledgeBasePage() {
                                                                 'bg-yellow-500/20 text-yellow-400'}`}>
                                                     {doc.status || 'Unknown'}
                                                 </Badge>
-                                                <span className="text-xs text-slate-500">ID: {doc.id.substring(0, 8)}...</span>
+                                                <span className="text-xs text-muted-foreground">ID: {doc.id.substring(0, 8)}...</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Button size="icon" variant="ghost" className="text-red-400 hover:bg-red-500/10" onClick={() => handleDelete(doc.id)}>
+                                        <Button size="icon" variant="ghost" className="text-red-500 hover:bg-red-500/10" onClick={() => handleDelete(doc.id)}>
                                             <Trash2 className="w-4 h-4" />
                                         </Button>
                                     </div>
@@ -190,27 +190,27 @@ export default function KnowledgeBasePage() {
             </Card>
 
             <Dialog open={isUploadOpen} onOpenChange={setIsUploadOpen}>
-                <DialogContent className="sm:max-w-md bg-zinc-950 border-white/10 text-slate-200">
+                <DialogContent className="sm:max-w-md bg-[var(--card)] border-[var(--border)] text-foreground">
                     <DialogHeader>
-                        <DialogTitle className="text-emerald-400">Upload to Knowledge Base</DialogTitle>
-                        <DialogDescription className="text-slate-400">
+                        <DialogTitle className="text-emerald-600 dark:text-emerald-400">Upload to Knowledge Base</DialogTitle>
+                        <DialogDescription className="text-muted-foreground">
                             Upload a text file or PDF. It will be stored in Minio and indexed for search.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4 py-4">
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Storage Bucket</label>
+                            <label className="text-sm font-medium text-foreground">Storage Bucket</label>
                             {!isCreatingBucket ? (
                                 <div className="flex gap-2">
                                     <select
-                                        className="flex-1 h-10 rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                        className="flex-1 h-10 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                         value={selectedBucket}
                                         onChange={(e) => setSelectedBucket(e.target.value)}
                                     >
                                         <option value="" disabled>Select a bucket</option>
                                         {buckets.map(b => <option key={b} value={b}>{b}</option>)}
                                     </select>
-                                    <Button variant="outline" onClick={() => setIsCreatingBucket(true)}>
+                                    <Button variant="outline" onClick={() => setIsCreatingBucket(true)} className="border-[var(--border)] text-muted-foreground hover:bg-muted hover:text-foreground">
                                         <Plus className="w-4 h-4" />
                                     </Button>
                                 </div>
@@ -220,15 +220,15 @@ export default function KnowledgeBasePage() {
                                         placeholder="New Bucket Name"
                                         value={newBucketName}
                                         onChange={(e) => setNewBucketName(e.target.value)}
-                                        className="bg-black/50 border-white/10 text-slate-200"
+                                        className="bg-[var(--background)] border-[var(--border)] text-foreground"
                                     />
-                                    <Button onClick={createBucket} disabled={!newBucketName} size="sm" className="bg-emerald-600">Create</Button>
+                                    <Button onClick={createBucket} disabled={!newBucketName} size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">Create</Button>
                                     <Button variant="ghost" onClick={() => setIsCreatingBucket(false)}>Cancel</Button>
                                 </div>
                             )}
                         </div>
 
-                        <div className="border-2 border-dashed border-white/10 rounded-lg p-8 text-center hover:border-emerald-500/50 transition-colors bg-white/5 cursor-pointer relative">
+                        <div className="border-2 border-dashed border-[var(--border)] rounded-lg p-8 text-center hover:border-emerald-500/50 transition-colors bg-muted/30 hover:bg-muted/50 cursor-pointer relative">
                             <input
                                 type="file"
                                 accept=".txt,.pdf,.md"
@@ -236,16 +236,16 @@ export default function KnowledgeBasePage() {
                                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                             />
                             {file ? (
-                                <div className="text-emerald-400 font-medium flex flex-col items-center">
+                                <div className="text-emerald-600 dark:text-emerald-400 font-medium flex flex-col items-center">
                                     <FileText className="w-8 h-8 mb-2" />
                                     {file.name}
-                                    <span className="text-xs text-slate-500 mt-1">{(file.size / 1024).toFixed(2)} KB</span>
+                                    <span className="text-xs text-muted-foreground mt-1">{(file.size / 1024).toFixed(2)} KB</span>
                                 </div>
                             ) : (
-                                <div className="text-slate-400 flex flex-col items-center">
+                                <div className="text-muted-foreground flex flex-col items-center">
                                     <Upload className="w-8 h-8 mb-2" />
-                                    <span className="text-sm">Click to browse or drag file here</span>
-                                    <span className="text-xs text-slate-600 mt-1">Supports PDF, TXT, MD</span>
+                                    <span className="text-sm text-foreground">Click to browse or drag file here</span>
+                                    <span className="text-xs mt-1">Supports PDF, TXT, MD</span>
                                 </div>
                             )}
                         </div>

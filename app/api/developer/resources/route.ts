@@ -22,6 +22,7 @@ export async function GET(req: NextRequest) {
         // 1. Fetch Voices (System + Custom)
         // Hardcoded system voices for consistency
         const systemVoices = [
+            // English Premade
             { id: "af_heart", name: "Heart (F) - US", category: "premade" },
             { id: "af_bella", name: "Bella (F) - US", category: "premade" },
             { id: "af_nicole", name: "Nicole (F) - US", category: "premade" },
@@ -29,6 +30,13 @@ export async function GET(req: NextRequest) {
             { id: "am_michael", name: "Michael (M) - US", category: "premade" },
             { id: "bf_emma", name: "Emma (F) - UK", category: "premade" },
             { id: "bm_george", name: "George (M) - UK", category: "premade" },
+
+            // Indic Premade
+            { id: "hi_female_1", name: "Hindi Female", category: "indic" },
+            { id: "hi_male_1", name: "Hindi Male", category: "indic" },
+            { id: "bn_female_1", name: "Bengali Female", category: "indic" },
+            { id: "ta_male_1", name: "Tamil Male", category: "indic" },
+            { id: "gu_female_1", name: "Gujarati Female", category: "indic" }
         ];
 
         const myVoices = await db.query.customVoices.findMany({

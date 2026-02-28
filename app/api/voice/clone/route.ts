@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { db } from "@/db/db";
 import { customVoices, users } from "@/db/schema";
-import { writeFile, mkdir } from "fs/promises";
+import { writeFile, mkdir, unlink } from "fs/promises";
 import path from "path";
 import { eq, or } from "drizzle-orm";
 
@@ -89,6 +89,54 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(enrichedVoices);
     } catch (e) {
         console.error("Fetch voices error:", e);
+        return new NextResponse("Internal Server Error", { status: 500 });
+    }
+}
+
+export async function DELETE(req: NextRequest) {
+    try {
+        const session = await getServerSession(authOptions);
+        if (!session || !session.user?.email) {
+            return new NextResponse("Unauthorized", { status: 401 });
+        }
+
+        const user = await db.query.users.findFirst({
+            where: eq(users.email, session.user.email)
+        });
+        if (!user) return new NextResponse("User not found", { status: 404 });
+
+        const { id } = await req.json();
+        if (!id) return new NextResponse("Missing voice ID", { status: 400 });
+
+        const voice = await db.query.customVoices.findFirst({
+            where: eq(customVoices.id, id)
+        });
+
+        if (!voice) {
+            return new NextResponse("Voice not found", { status: 404 });
+        }
+
+        if (voice.userId !== user.id) {
+            return new NextResponse("Forbidden", { status: 403 });
+        }
+
+        // Try to delete the file if it exists locally
+        if (voice.embeddingPath) {
+            try {
+                await unlink(voice.embeddingPath);
+            } catch (err: any) {
+                // Ignore if file is already missing
+                if (err.code !== 'ENOENT') {
+                    console.error("Error deleting voice file:", err);
+                }
+            }
+        }
+
+        await db.delete(customVoices).where(eq(customVoices.id, id));
+
+        return NextResponse.json({ success: true });
+    } catch (e) {
+        console.error("Delete voice error:", e);
         return new NextResponse("Internal Server Error", { status: 500 });
     }
 }

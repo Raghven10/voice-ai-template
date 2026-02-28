@@ -58,7 +58,7 @@ export default function AgentSelector({ onSelect }: Props) {
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center gap-3 text-slate-400">
+            <div className="flex flex-col items-center gap-3 text-muted-foreground">
                 <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
                 <span className="text-sm">Loading assistants…</span>
             </div>
@@ -68,12 +68,12 @@ export default function AgentSelector({ onSelect }: Props) {
     if (agents.length === 0) {
         return (
             <div className="flex flex-col items-center gap-4 text-center max-w-sm">
-                <div className="w-16 h-16 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center">
-                    <Headset className="w-8 h-8 text-slate-500" />
+                <div className="w-16 h-16 rounded-2xl bg-muted border border-[var(--border)] flex items-center justify-center">
+                    <Headset className="w-8 h-8 text-muted-foreground" />
                 </div>
                 <div>
-                    <p className="text-slate-200 font-semibold mb-1">No assistants configured</p>
-                    <p className="text-slate-500 text-sm leading-relaxed">
+                    <p className="text-foreground font-semibold mb-1">No assistants configured</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                         Ask your administrator to configure a helpdesk assistant from the Admin → Agents page.
                     </p>
                 </div>
@@ -85,8 +85,8 @@ export default function AgentSelector({ onSelect }: Props) {
         <div className="w-full max-w-2xl flex flex-col gap-5">
             {/* Header */}
             <div className="text-center">
-                <p className="text-slate-300 font-semibold text-base">Choose your assistant</p>
-                <p className="text-slate-500 text-sm mt-1">Select the language and support area you need help with</p>
+                <p className="text-foreground font-semibold text-base">Choose your assistant</p>
+                <p className="text-muted-foreground text-sm mt-1">Select the language and support area you need help with</p>
             </div>
 
             {/* Agent Cards Grid */}
@@ -116,17 +116,17 @@ export default function AgentSelector({ onSelect }: Props) {
                                 <div
                                     className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all ${isSelected
                                         ? "bg-indigo-600/30"
-                                        : "bg-white/[0.05] group-hover:bg-white/[0.1]"
+                                        : "bg-muted group-hover:bg-muted/80"
                                         }`}
                                 >
                                     {lang.flag}
                                 </div>
                                 <div>
-                                    <p className="font-semibold text-slate-100 text-sm leading-tight">{agent.name}</p>
+                                    <p className="font-semibold text-foreground text-sm leading-tight">{agent.name}</p>
                                     <span
                                         className={`text-[11px] font-medium px-1.5 py-0.5 rounded mt-0.5 inline-block ${isSelected
                                             ? "bg-indigo-500/20 text-indigo-300"
-                                            : "bg-white/[0.06] text-slate-500"
+                                            : "bg-muted text-muted-foreground"
                                             }`}
                                     >
                                         {lang.label}
@@ -136,7 +136,7 @@ export default function AgentSelector({ onSelect }: Props) {
 
                             {/* Description */}
                             {agent.description && (
-                                <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                                     {agent.description}
                                 </p>
                             )}
@@ -160,7 +160,7 @@ export default function AgentSelector({ onSelect }: Props) {
             <Button
                 onClick={() => selected && onSelect(selected)}
                 disabled={!selected}
-                className="w-full gap-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full py-5 text-base font-semibold shadow-lg shadow-indigo-900/30 hover:shadow-indigo-900/50 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                className="w-full gap-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full py-5 text-base font-semibold shadow-lg shadow-indigo-900/30 hover:shadow-indigo-900/50 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100 disabled:shadow-none disabled:cursor-not-allowed"
             >
                 <Headset className="w-5 h-5" />
                 Connect with {selected ? selected.name : "selected assistant"}

@@ -105,9 +105,34 @@ export default function SavedVoicesPage() {
         }
     };
 
-    const handleDelete = (id: string) => {
+    const handleDelete = async (id: string) => {
+        // Optimistic update
+        const previousVoices = [...voices];
         setVoices(prev => prev.filter(v => v.id !== id));
-        toast.success("Voice deleted");
+
+        // Prevent deleting mock data
+        if (id === '1') {
+            toast.success("Voice deleted");
+            return;
+        }
+
+        try {
+            const res = await fetch("/api/voice/clone", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id })
+            });
+
+            if (!res.ok) {
+                throw new Error("Failed to delete voice");
+            }
+            toast.success("Voice deleted successfully");
+        } catch (error) {
+            console.error(error);
+            toast.error("Could not delete voice from server");
+            // Revert optimistic update
+            setVoices(previousVoices);
+        }
     };
 
     const handleSetActive = (id: string) => {
@@ -121,48 +146,48 @@ export default function SavedVoicesPage() {
     return (
         <div className="h-full w-full p-6 space-y-8 animate-in fade-in duration-500">
             <div>
-                <h1 className="text-3xl font-black text-slate-800 dark:text-slate-100 tracking-tight">Saved Voices</h1>
-                <p className="text-slate-600 dark:text-slate-400 mt-2 text-lg">
+                <h1 className="text-3xl font-black text-foreground tracking-tight">Saved Voices</h1>
+                <p className="text-muted-foreground mt-2 text-lg">
                     Manage and audition your voice library.
                 </p>
             </div>
 
-            <div className="rounded-xl border border-white/20 bg-black/20 backdrop-blur-xl shadow-2xl overflow-hidden">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-md overflow-hidden">
                 <Table>
-                    <TableHeader className="bg-white/5 dark:bg-white/5 border-b border-white/10">
-                        <TableRow className="hover:bg-transparent border-white/10">
-                            <TableHead className="w-[60px] text-center text-slate-500 dark:text-slate-400 font-semibold uppercase text-xs tracking-wider">Status</TableHead>
-                            <TableHead className="text-slate-500 dark:text-slate-400 font-semibold uppercase text-xs tracking-wider">Name</TableHead>
-                            <TableHead className="text-slate-500 dark:text-slate-400 font-semibold uppercase text-xs tracking-wider">Type</TableHead>
-                            <TableHead className="text-slate-500 dark:text-slate-400 font-semibold uppercase text-xs tracking-wider">Created</TableHead>
-                            <TableHead className="text-right text-slate-500 dark:text-slate-400 font-semibold uppercase text-xs tracking-wider w-[200px]">Preview</TableHead>
+                    <TableHeader className="bg-muted/50 border-b border-[var(--border)]">
+                        <TableRow className="hover:bg-transparent border-[var(--border)]">
+                            <TableHead className="w-[60px] text-center text-muted-foreground font-semibold uppercase text-xs tracking-wider">Status</TableHead>
+                            <TableHead className="text-muted-foreground font-semibold uppercase text-xs tracking-wider">Name</TableHead>
+                            <TableHead className="text-muted-foreground font-semibold uppercase text-xs tracking-wider">Type</TableHead>
+                            <TableHead className="text-muted-foreground font-semibold uppercase text-xs tracking-wider">Created</TableHead>
+                            <TableHead className="text-right text-muted-foreground font-semibold uppercase text-xs tracking-wider w-[200px]">Preview</TableHead>
                             <TableHead className="w-[50px]"></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {voices.map((voice) => (
-                            <TableRow key={voice.id} className="group border-b border-white/5 hover:bg-white/5 transition-colors">
+                            <TableRow key={voice.id} className="group border-b border-[var(--border)] hover:bg-muted/30 transition-colors">
                                 <TableCell>
                                     <div className="flex justify-center">
                                         {voice.isDefault ? (
                                             <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                                                <Check className="w-4 h-4 text-emerald-500" />
+                                                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
                                             </div>
                                         ) : (
-                                            <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <Mic className="w-4 h-4 text-slate-400" />
+                                            <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Mic className="w-4 h-4 text-muted-foreground" />
                                             </div>
                                         )}
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    <div className="font-medium text-slate-700 dark:text-slate-200">
+                                    <div className="font-medium text-foreground">
                                         {voice.name}
-                                        {voice.isDefault && <span className="ml-2 text-[10px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-1.5 py-0.5 rounded-full font-medium tracking-wide">ACTIVE</span>}
+                                        {voice.isDefault && <span className="ml-2 text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 border border-emerald-500/20 px-1.5 py-0.5 rounded-full font-medium tracking-wide">ACTIVE</span>}
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    <Badge variant="secondary" className="bg-white/10 hover:bg-white/20 text-slate-600 dark:text-slate-300 border-0 font-normal">
+                                    <Badge variant="secondary" className="bg-muted hover:bg-muted/80 text-foreground border border-[var(--border)] font-normal">
                                         {voice.type}
                                     </Badge>
                                 </TableCell>
@@ -182,9 +207,9 @@ export default function SavedVoicesPage() {
                                         <Button
                                             variant={playingId === voice.id ? "default" : "secondary"}
                                             size="icon"
-                                            className={`rounded-full shadow-lg transition-all border border-white/10 ${playingId === voice.id
-                                                ? 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-[0_0_15px_rgba(99,102,241,0.5)]'
-                                                : 'bg-white/5 hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-indigo-400'
+                                            className={`rounded-full shadow-sm transition-all border border-[var(--border)] ${playingId === voice.id
+                                                ? 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-[0_0_15px_rgba(99,102,241,0.5)]'
+                                                : 'bg-[var(--background)] hover:bg-muted text-foreground hover:text-indigo-600 dark:hover:text-indigo-400'
                                                 }`}
                                             onClick={() => handlePlay(voice)}
                                         >
@@ -195,24 +220,24 @@ export default function SavedVoicesPage() {
                                 <TableCell>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" className="h-8 w-8 p-0 text-slate-400 hover:text-slate-200 hover:bg-white/10">
+                                            <Button variant="ghost" className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground hover:bg-muted">
                                                 <span className="sr-only">Open menu</span>
                                                 <MoreHorizontal className="h-4 w-4" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="bg-slate-900 border-slate-800 text-slate-300">
+                                        <DropdownMenuContent align="end" className="bg-[var(--card)] border-[var(--border)] text-foreground">
                                             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                            <DropdownMenuItem onClick={() => handlePlay(voice)} className="focus:bg-white/10 focus:text-white">
+                                            <DropdownMenuItem onClick={() => handlePlay(voice)} className="focus:bg-muted focus:text-foreground cursor-pointer">
                                                 Preview Audio
                                             </DropdownMenuItem>
-                                            <DropdownMenuSeparator className="bg-white/10" />
+                                            <DropdownMenuSeparator className="bg-[var(--border)]" />
                                             {!voice.isDefault && (
-                                                <DropdownMenuItem onClick={() => handleSetActive(voice.id)} className="text-emerald-500 focus:text-emerald-400 focus:bg-emerald-500/10">
+                                                <DropdownMenuItem onClick={() => handleSetActive(voice.id)} className="text-emerald-600 dark:text-emerald-500 focus:text-emerald-700 dark:focus:text-emerald-400 focus:bg-emerald-500/10 cursor-pointer">
                                                     <Check className="mr-2 h-4 w-4" /> Set as Active
                                                 </DropdownMenuItem>
                                             )}
-                                            <DropdownMenuSeparator className="bg-white/10" />
-                                            <DropdownMenuItem className="text-red-500 focus:text-red-400 focus:bg-red-500/10" onClick={() => handleDelete(voice.id)}>
+                                            <DropdownMenuSeparator className="bg-[var(--border)]" />
+                                            <DropdownMenuItem className="text-red-600 dark:text-red-500 focus:text-red-700 dark:focus:text-red-400 focus:bg-red-500/10 cursor-pointer" onClick={() => handleDelete(voice.id)}>
                                                 <Trash2 className="mr-2 h-4 w-4" /> Delete
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>

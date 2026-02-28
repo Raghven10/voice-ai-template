@@ -26,7 +26,6 @@ const items = [
         icon: LifeBuoy,
         roles: ["user"],
         items: [
-            { title: "Assistant", url: "/dashboard/voice" },
             { title: "Clone Voice", url: "/dashboard/voice/clone" },
             { title: "Voice Lab", url: "/dashboard/voice/lab" },
             { title: "Knowledge Base", url: "/dashboard/knowledge" },
@@ -115,11 +114,11 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter className="p-4 bg-transparent">
-                <div className="p-4 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 text-center">
-                    <p className="text-xs text-gray-500 mb-1">System Status</p>
+                <div className="p-4 rounded-xl bg-muted/50 border border-[var(--border)] text-center">
+                    <p className="text-xs text-muted-foreground mb-1">System Status</p>
                     <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_green]" />
-                        <span className="text-xs font-bold text-green-400 tracking-wider">ONLINE</span>
+                        <span className="text-xs font-bold text-green-600 dark:text-green-400 tracking-wider">ONLINE</span>
                     </div>
                 </div>
             </SidebarFooter>

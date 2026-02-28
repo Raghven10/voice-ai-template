@@ -1,0 +1,2368 @@
+
+> ai-helpdesk@0.1.0 worker
+> LIVEKIT_URL=ws://localhost:7880 LIVEKIT_AGENT_NAME=voice-helpdesk tsx worker.ts dev
+
+Worker starting to load...
+LIVEKIT_URL: ws://localhost:7880
+[22:17:37.625] [32mINFO[39m (2132): [36mstarting worker[39m
+    version: "0.1.0"
+[22:17:37.644] [32mINFO[39m (2132): [36mServer is listening on port 51686[39m
+[22:17:37.692] [32mINFO[39m (2132): [36mregistered worker[39m
+    version: "0.1.0"
+    id: "AW_y89EDk82VFkj"
+    server_info: {
+      "edition": "Standard",
+      "version": "1.9.11",
+      "protocol": 16,
+      "region": "",
+      "nodeId": "ND_nmz53TQkWMsH",
+      "debugInfo": "",
+      "agentProtocol": 1
+    }
+[22:25:14.069] [32mINFO[39m (2132): [36mreceived job request[39m
+    version: "0.1.0"
+    jobId: "AJ_rUSvqCx5CnHN"
+    resuming: false
+    agentName: ""
+Worker starting to load...
+LIVEKIT_URL: ws://localhost:7880
+🔥 Worker prewarm called. Pre-loading heavy modules...
+🚀 Worker ENTRY called - Dispatch received!
+Job Context: { roomName: undefined, jobId: 'AJ_rUSvqCx5CnHN' }
+[22:25:39.689] [33mWARN[39m (2659): [36mroom not connect after job_entry was called after 10 seconds, [39m
+    jobID: "AJ_rUSvqCx5CnHN"
+Modules loaded (from cache).
+✅ Connected to room. Waiting for participant...
+👤 Participant joined: test@gmail.com
+✅ Prewarm complete - all modules cached.
+🤖 Detected agentId: 299e10d4-04cb-49f4-a96f-ece30674e51f
+🎙️ Agent: Telugu Support Agent | Lang: te | Voice: te_IN-padmavathi-medium
+🎤 Using Voice Engine: piper (piper)
+🔊 Using Piper TTS: te_IN-padmavathi-medium
+[22:25:39.997] [34mDEBUG[39m (lk-rtc/2659): [36mConnect callback received[39m
+Starting agent session...
+{"level":40,"time":1772211340816,"pid":2659,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":40,"time":1772211340837,"pid":2659,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":30,"time":1772211340841,"pid":2659,"hostname":"RKs-MacBook-Pro.local","participantValue":"test@gmail.com","trackPublications":[{"info":{"sid":"TR_AMxnkFXV7JPEi6","name":"","kind":"KIND_AUDIO","source":"SOURCE_MICROPHONE","simulcasted":false,"width":0,"height":0,"mimeType":"audio/red","muted":false,"remote":true,"encryptionType":"NONE","audioFeatures":["TF_AUTO_GAIN_CONTROL","TF_ECHO_CANCELLATION","TF_NOISE_SUPPRESSION"]},"ffiHandle":{},"subscribed":true,"track":{"info":{"sid":"TR_AMxnkFXV7JPEi6","name":"","kind":"KIND_AUDIO","streamState":"STATE_ACTIVE","muted":false,"remote":true},"ffi_handle":{}}}],"lengthOfTrackPublications":1,"msg":"participantValue.trackPublications"}
+🤖 Agent State Changed: listening
+Agent session started!
+Attempting to say greeting...
+Greeting sent!
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211344710,"pid":2659,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211348805,"pid":2659,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211350690,"pid":2659,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: away
+[22:26:13.302] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 207
+[22:26:13.381] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 216
+[22:26:13.464] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 256
+[22:26:13.529] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 298
+[22:26:13.644] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 378
+[22:26:13.669] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 389
+[22:26:13.717] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 413
+[22:26:13.724] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 407
+[22:26:13.744] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 404
+[22:26:13.755] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 400
+[22:26:13.781] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 405
+[22:26:13.795] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 401
+[22:26:13.955] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 542
+[22:26:13.959] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 529
+[22:26:13.971] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 524
+[22:26:13.978] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 514
+[22:26:13.989] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 507
+[22:26:13.996] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 497
+[22:26:14.006] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 490
+[22:26:14.033] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 499
+[22:26:14.058] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 505
+[22:26:14.062] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 493
+[22:26:14.069] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 482
+[22:26:14.077] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 473
+[22:26:14.095] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 474
+[22:26:14.107] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 467
+[22:26:14.121] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 464
+[22:26:14.129] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 454
+[22:26:14.209] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 514
+[22:26:14.214] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 465
+[22:26:14.227] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 497
+[22:26:14.235] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 452
+[22:26:14.242] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 478
+[22:26:14.249] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 431
+[22:26:14.271] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 472
+[22:26:14.275] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 413
+[22:26:14.286] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 453
+[22:26:14.291] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 395
+[22:26:14.298] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 430
+[22:26:14.306] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 376
+[22:26:14.317] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 412
+[22:26:14.325] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 360
+[22:26:14.338] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 396
+[22:26:14.344] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 343
+[22:26:14.354] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 378
+[22:26:14.360] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 323
+[22:26:14.372] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 361
+[22:26:14.379] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 308
+[22:26:14.399] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 352
+[22:26:14.410] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 303
+[22:26:14.423] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 338
+[22:26:14.433] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 291
+[22:26:14.446] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 325
+[22:26:14.455] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 276
+[22:26:14.469] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 311
+[22:26:14.476] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 262
+[22:26:14.501] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 306
+[22:26:14.511] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 259
+[22:26:14.522] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 290
+[22:26:14.526] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 241
+[22:26:14.539] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 273
+[22:26:14.547] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 226
+[22:26:14.565] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 264
+[22:26:14.571] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 214
+[22:26:14.578] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 242
+[22:26:14.587] [33mWARN[39m (2659): [36minference is slower than realtime[39m
+    delay: 216
+{"level":30,"time":1772211378631,"pid":2659,"hostname":"RKs-MacBook-Pro.local","participant":"test@gmail.com","reason":"CLIENT_INITIATED","msg":"closing agent session due to participant disconnect (disable via `RoomInputOptions.closeOnDisconnect=False`)"}
+{"level":30,"time":1772211378640,"pid":2659,"hostname":"RKs-MacBook-Pro.local","msg":"mainTask: draining and no more speech tasks"}
+{"level":30,"time":1772211378640,"pid":2659,"hostname":"RKs-MacBook-Pro.local","msg":"AgentActivity mainTask: exiting"}
+{"level":30,"time":1772211378689,"pid":2659,"hostname":"RKs-MacBook-Pro.local","reason":"participant_disconnected","error":null,"msg":"AgentSession closed"}
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+[22:27:25.358] [32mINFO[39m (2132): [36mreceived job request[39m
+    version: "0.1.0"
+    jobId: "AJ_dt5cU46FntD5"
+    resuming: false
+    agentName: ""
+Worker starting to load...
+LIVEKIT_URL: ws://localhost:7880
+🔥 Worker prewarm called. Pre-loading heavy modules...
+🚀 Worker ENTRY called - Dispatch received!
+Job Context: { roomName: undefined, jobId: 'AJ_dt5cU46FntD5' }
+[22:27:57.110] [33mWARN[39m (2969): [36mroom not connect after job_entry was called after 10 seconds, [39m
+    jobID: "AJ_dt5cU46FntD5"
+Modules loaded (from cache).
+✅ Connected to room. Waiting for participant...
+👤 Participant joined: test@gmail.com
+✅ Prewarm complete - all modules cached.
+🤖 Detected agentId: 44df47d3-e281-4322-b25c-f0c9aa951b11
+🎙️ Agent: Test-1 | Lang: en | Voice: 412e5723-77a8-43dc-8c70-59a060264f8e
+🎤 Using Voice Engine: piper (piper)
+🔊 Using Piper TTS: 412e5723-77a8-43dc-8c70-59a060264f8e
+[22:27:57.462] [34mDEBUG[39m (lk-rtc/2969): [36mConnect callback received[39m
+Starting agent session...
+{"level":40,"time":1772211478703,"pid":2969,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":40,"time":1772211478760,"pid":2969,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":30,"time":1772211478769,"pid":2969,"hostname":"RKs-MacBook-Pro.local","participantValue":"test@gmail.com","trackPublications":[{"info":{"sid":"TR_AMDMtqccsYHGnM","name":"","kind":"KIND_AUDIO","source":"SOURCE_MICROPHONE","simulcasted":false,"width":0,"height":0,"mimeType":"audio/red","muted":false,"remote":true,"encryptionType":"NONE","audioFeatures":["TF_AUTO_GAIN_CONTROL","TF_ECHO_CANCELLATION","TF_NOISE_SUPPRESSION"]},"ffiHandle":{},"subscribed":true,"track":{"info":{"sid":"TR_AMDMtqccsYHGnM","name":"","kind":"KIND_AUDIO","streamState":"STATE_ACTIVE","muted":false,"remote":true},"ffi_handle":{}}}],"lengthOfTrackPublications":1,"msg":"participantValue.trackPublications"}
+🤖 Agent State Changed: listening
+Agent session started!
+Attempting to say greeting...
+[22:27:59.345] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 296
+[22:27:59.375] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 308
+Greeting sent!
+[22:27:59.997] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 901
+[22:28:00.001] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 897
+[22:28:00.231] [33mWARN[39m (2132): [36mprocess memory usage is high[39m
+    memoryUsageMB: 509.64453125
+    memoryWarnMB: 500
+    memoryLimitMB: 0
+[22:28:00.052] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 921
+[22:28:00.069] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 931
+👤 User State Changed: speaking
+[22:28:00.567] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1391
+[22:28:00.585] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1406
+[22:28:00.689] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1473
+[22:28:00.706] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1476
+[22:28:00.775] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1513
+[22:28:00.784] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1519
+[22:28:00.873] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1574
+[22:28:00.877] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1577
+[22:28:00.886] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1552
+[22:28:00.898] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1564
+[22:28:00.914] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1541
+[22:28:00.924] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1556
+[22:28:00.936] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1526
+[22:28:00.942] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1540
+[22:28:00.959] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1513
+[22:28:00.966] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1525
+[22:28:00.977] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1496
+[22:28:00.981] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1505
+[22:28:00.988] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1473
+[22:28:01.017] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1507
+[22:28:01.043] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1492
+[22:28:01.048] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1497
+[22:28:01.065] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1479
+[22:28:01.086] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1501
+[22:28:01.101] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1465
+[22:28:01.105] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1482
+[22:28:01.118] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1448
+[22:28:01.131] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1474
+[22:28:01.146] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1435
+[22:28:01.151] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1457
+[22:28:01.160] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1414
+[22:28:01.169] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1440
+[22:28:01.192] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1409
+[22:28:01.198] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1424
+[22:28:01.212] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1394
+[22:28:01.217] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1406
+[22:28:01.232] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1379
+[22:28:01.240] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1394
+[22:28:01.251] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1361
+[22:28:01.259] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1379
+[22:28:01.269] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1345
+[22:28:01.273] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1358
+[22:28:01.279] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1320
+[22:28:01.285] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1336
+[22:28:01.310] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1317
+[22:28:01.318] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1327
+[22:28:01.324] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1296
+[22:28:01.328] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1302
+[22:28:01.332] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1269
+[22:28:01.340] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1280
+[22:28:01.363] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1265
+[22:28:01.370] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1269
+[22:28:01.380] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1245
+[22:28:01.383] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1246
+[22:28:01.387] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1219
+[22:28:01.391] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1221
+[22:28:01.397] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1194
+[22:28:01.411] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1207
+[22:28:01.423] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1176
+[22:28:01.427] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1187
+[22:28:01.433] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1152
+[22:28:01.438] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1162
+[22:28:01.442] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1127
+[22:28:01.447] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1137
+[22:28:01.458] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1108
+[22:28:01.464] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1119
+[22:28:01.472] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1087
+[22:28:01.475] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1095
+[22:28:01.484] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1065
+[22:28:01.487] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1074
+👤 User State Changed: listening
+[22:28:01.492] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1039
+[22:28:01.498] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1050
+[22:28:01.540] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1053
+[22:28:01.543] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1061
+[22:28:01.548] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1027
+[22:28:01.551] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1035
+[22:28:01.572] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1017
+[22:28:01.578] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1028
+[22:28:01.595] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1005
+[22:28:01.602] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1017
+[22:28:01.619] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 994
+[22:28:01.629] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 1010
+[22:28:01.650] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 987
+[22:28:01.654] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 992
+[22:28:01.661] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 964
+[22:28:01.669] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 972
+[22:28:01.685] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 953
+[22:28:01.692] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 959
+[22:28:01.707] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 938
+[22:28:01.714] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 947
+[22:28:01.733] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 929
+[22:28:01.750] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 949
+[22:28:01.768] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 927
+[22:28:01.773] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 938
+[22:28:01.783] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 908
+[22:28:01.792] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 922
+[22:28:01.812] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 901
+[22:28:01.821] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 917
+[22:28:01.827] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 879
+[22:28:01.831] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 893
+[22:28:01.836] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 853
+[22:28:01.843] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 871
+[22:28:01.868] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 850
+[22:28:01.875] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 864
+[22:28:01.882] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 830
+[22:28:01.886] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 840
+[22:28:01.892] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 805
+[22:28:01.897] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 817
+[22:28:01.913] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 792
+[22:28:01.920] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 803
+[22:28:01.934] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 778
+[22:28:01.939] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 788
+[22:28:01.945] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 754
+[22:28:01.950] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 764
+[22:28:01.964] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 737
+[22:28:01.972] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 752
+[22:28:01.995] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 732
+[22:28:02.000] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 744
+[22:28:02.005] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 707
+[22:28:02.013] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 723
+[22:28:02.027] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 694
+[22:28:02.033] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 707
+[22:28:02.041] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 674
+[22:28:02.050] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 689
+[22:28:02.059] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 655
+[22:28:02.066] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 670
+[22:28:02.078] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 639
+[22:28:02.088] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 657
+[22:28:02.105] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 627
+[22:28:02.112] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 644
+[22:28:02.122] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 609
+[22:28:02.128] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 625
+[22:28:02.156] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 607
+[22:28:02.163] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 612
+[22:28:02.172] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 588
+[22:28:02.175] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 590
+[22:28:02.180] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 563
+[22:28:02.185] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 567
+[22:28:02.195] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 543
+[22:28:02.206] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 552
+[22:28:02.224] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 534
+[22:28:02.230] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 542
+{"level":50,"time":1772211482260,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+[22:28:02.263] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 538
+[22:28:02.268] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 546
+[22:28:02.283] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 523
+[22:28:02.289] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 533
+[22:28:02.307] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 510
+[22:28:02.321] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 527
+[22:28:02.330] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 490
+[22:28:02.335] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 507
+[22:28:02.341] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 466
+[22:28:02.344] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 481
+[22:28:02.351] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 442
+[22:28:02.358] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 461
+[22:28:02.377] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 434
+[22:28:02.380] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 448
+[22:28:02.386] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 409
+[22:28:02.390] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 424
+[22:28:02.394] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 383
+[22:28:02.398] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 398
+[22:28:02.403] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 358
+[22:28:02.413] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 379
+[22:28:02.431] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 350
+[22:28:02.436] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 365
+[22:28:02.446] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 330
+[22:28:02.450] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 342
+[22:28:02.455] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 305
+[22:28:02.460] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 318
+[22:28:02.473] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 289
+[22:28:02.483] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 305
+[22:28:02.501] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 278
+[22:28:02.506] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 292
+[22:28:02.519] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 261
+[22:28:02.540] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 291
+[22:28:02.562] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 267
+[22:28:02.567] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 279
+[22:28:02.581] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 251
+[22:28:02.590] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 267
+[22:28:02.601] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 236
+[22:28:02.612] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 254
+[22:28:02.622] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 220
+[22:28:02.625] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 231
+[22:28:02.635] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 207
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211483476,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+[22:28:04.766] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 217
+[22:28:04.798] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 214
+[22:28:04.825] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 202
+[22:28:05.213] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 384
+[22:28:05.221] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 365
+[22:28:05.240] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 376
+[22:28:05.248] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 355
+[22:28:05.266] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 366
+[22:28:05.273] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 345
+[22:28:05.288] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 353
+[22:28:05.294] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 329
+[22:28:05.318] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 347
+[22:28:05.330] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 331
+[22:28:05.382] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 371
+[22:28:05.394] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 359
+[22:28:05.423] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 378
+[22:28:05.435] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 365
+[22:28:05.477] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 392
+[22:28:05.486] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 381
+[22:28:05.501] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 381
+[22:28:05.508] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 368
+[22:28:05.543] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 388
+[22:28:05.549] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 360
+[22:28:05.591] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 402
+[22:28:05.599] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 376
+[22:28:05.616] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 389
+[22:28:05.641] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 382
+[22:28:05.681] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 417
+[22:28:05.690] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 396
+[22:28:05.701] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 402
+[22:28:05.708] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 379
+[22:28:05.715] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 381
+[22:28:05.720] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 356
+[22:28:05.731] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 363
+[22:28:05.744] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 347
+[22:28:05.756] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 346
+[22:28:05.764] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 332
+[22:28:05.775] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 330
+[22:28:05.780] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 313
+[22:28:05.891] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 412
+[22:28:05.907] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 404
+[22:28:05.929] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 412
+[22:28:05.934] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 393
+[22:28:05.940] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 389
+[22:28:05.945] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 370
+[22:28:05.957] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 371
+[22:28:05.964] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 351
+[22:28:05.978] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 357
+[22:28:05.985] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 336
+[22:28:05.994] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 337
+[22:28:05.999] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 313
+[22:28:06.005] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 313
+[22:28:06.012] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 292
+[22:28:06.024] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 297
+[22:28:06.030] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 276
+[22:28:06.039] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 278
+[22:28:06.046] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 257
+[22:28:06.053] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 256
+[22:28:06.058] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 234
+[22:28:06.074] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 243
+[22:28:06.081] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 222
+[22:28:06.089] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 222
+[22:28:06.094] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 201
+[22:28:06.333] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 227
+[22:28:06.379] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 245
+[22:28:06.422] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 282
+[22:28:06.428] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 257
+[22:28:06.437] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 262
+[22:28:06.441] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 236
+[22:28:06.445] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 235
+[22:28:06.447] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 209
+[22:28:06.452] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 209
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211490008,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772211499639,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+{"level":50,"time":1772211502391,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772211504018,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+[22:28:25.423] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 204
+[22:28:25.566] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 204
+[22:28:25.599] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 203
+[22:28:25.747] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 227
+[22:28:25.753] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 287
+[22:28:25.808] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 253
+[22:28:25.823] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 302
+[22:28:25.839] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 248
+[22:28:25.849] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 294
+[22:28:25.858] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 229
+[22:28:25.867] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 278
+[22:28:25.880] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 214
+[22:28:25.892] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 269
+[22:28:25.902] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 202
+[22:28:25.912] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 254
+[22:28:25.933] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 241
+[22:28:25.967] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 231
+[22:28:26.020] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 250
+[22:28:26.272] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 429
+[22:28:26.282] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 476
+[22:28:26.316] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 437
+[22:28:26.321] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 466
+[22:28:26.333] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 420
+[22:28:26.341] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 452
+[22:28:26.356] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 408
+[22:28:26.363] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 440
+[22:28:26.373] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 391
+[22:28:26.381] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 422
+[22:28:26.392] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 373
+[22:28:26.402] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 409
+[22:28:26.421] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 363
+[22:28:26.431] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 403
+[22:28:26.579] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 486
+[22:28:26.600] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 537
+[22:28:26.610] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 482
+[22:28:26.630] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 533
+[22:28:26.644] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 467
+[22:28:26.654] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 523
+{"level":50,"time":1772211506672,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+[22:28:26.674] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 458
+[22:28:26.678] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 510
+[22:28:26.682] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 432
+[22:28:26.686] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 485
+[22:28:26.691] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 407
+[22:28:26.696] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 461
+[22:28:26.707] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 389
+[22:28:26.714] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 444
+[22:28:26.723] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 370
+[22:28:26.727] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 422
+[22:28:26.732] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 345
+[22:28:26.734] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 395
+[22:28:26.740] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 319
+[22:28:26.743] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 370
+[22:28:26.752] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 298
+[22:28:26.761] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 354
+👤 User State Changed: speaking
+[22:28:26.772] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 283
+[22:28:26.777] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 336
+[22:28:26.783] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 259
+[22:28:26.788] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 312
+[22:28:26.791] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 233
+[22:28:26.794] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 285
+[22:28:26.798] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 206
+[22:28:26.801] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 258
+[22:28:26.813] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 236
+[22:28:26.826] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 216
+👤 User State Changed: listening
+{"level":50,"time":1772211507573,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772211509740,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+{"level":50,"time":1772211510385,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+[22:28:35.817] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 212
+👤 User State Changed: speaking
+[22:28:35.940] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 338
+[22:28:36.098] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 430
+[22:28:36.103] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 466
+[22:28:36.116] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 414
+[22:28:36.126] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 455
+[22:28:36.144] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 408
+[22:28:36.149] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 442
+[22:28:36.158] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 388
+[22:28:36.166] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 422
+[22:28:36.184] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 379
+[22:28:36.203] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 425
+[22:28:36.225] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 385
+[22:28:36.230] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 417
+[22:28:36.248] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 375
+[22:28:36.264] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 416
+[22:28:36.656] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 739
+[22:28:36.662] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 781
+[22:28:36.673] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 721
+[22:28:36.678] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 761
+[22:28:36.683] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 697
+[22:28:36.691] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 740
+[22:28:36.711] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 689
+[22:28:36.715] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 730
+[22:28:36.723] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 668
+[22:28:36.728] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 709
+[22:28:36.734] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 644
+[22:28:36.739] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 685
+[22:28:36.759] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 634
+[22:28:36.768] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 680
+[22:28:36.776] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 615
+[22:28:36.783] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 660
+[22:28:36.792] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 595
+[22:28:36.797] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 640
+[22:28:36.807] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 576
+[22:28:36.820] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 629
+[22:28:36.831] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 561
+[22:28:36.838] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 610
+[22:28:36.848] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 543
+[22:28:36.851] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 589
+[22:28:36.858] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 519
+[22:28:36.873] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 577
+[22:28:36.884] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 510
+[22:28:36.890] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 559
+[22:28:36.901] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 492
+[22:28:36.907] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 541
+[22:28:36.916] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 472
+[22:28:36.923] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 523
+[22:28:36.935] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 456
+[22:28:36.946] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 507
+[22:28:36.963] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 445
+[22:28:36.968] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 495
+[22:28:36.974] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 422
+[22:28:36.980] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 474
+[22:28:36.999] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 412
+[22:28:37.004] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 455
+[22:28:37.012] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 391
+[22:28:37.022] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 438
+[22:28:37.028] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 369
+[22:28:37.032] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 414
+[22:28:37.046] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 354
+[22:28:37.053] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 401
+{"level":50,"time":1772211517065,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+[22:28:37.068] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 340
+[22:28:37.073] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 384
+[22:28:37.079] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 317
+[22:28:37.082] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 359
+[22:28:37.085] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 289
+[22:28:37.090] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 333
+[22:28:37.097] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 267
+[22:28:37.105] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 314
+[22:28:37.116] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 251
+[22:28:37.120] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 293
+[22:28:37.131] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 232
+[22:28:37.134] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 273
+[22:28:37.144] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 211
+[22:28:37.151] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 255
+[22:28:37.171] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 202
+[22:28:37.176] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 245
+[22:28:37.183] [33mWARN[39m (2969): [36minference is slower than realtime[39m
+    delay: 219
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772211518590,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+{"level":50,"time":1772211520462,"pid":2969,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+{"level":30,"time":1772211526527,"pid":2969,"hostname":"RKs-MacBook-Pro.local","participant":"test@gmail.com","reason":"CLIENT_INITIATED","msg":"closing agent session due to participant disconnect (disable via `RoomInputOptions.closeOnDisconnect=False`)"}
+{"level":30,"time":1772211526541,"pid":2969,"hostname":"RKs-MacBook-Pro.local","msg":"mainTask: draining and no more speech tasks"}
+{"level":30,"time":1772211526541,"pid":2969,"hostname":"RKs-MacBook-Pro.local","msg":"AgentActivity mainTask: exiting"}
+{"level":30,"time":1772211526559,"pid":2969,"hostname":"RKs-MacBook-Pro.local","reason":"participant_disconnected","error":null,"msg":"AgentSession closed"}
+[22:28:50.333] [32mINFO[39m (2132): [36mreceived job request[39m
+    version: "0.1.0"
+    jobId: "AJ_vVQJiWYkkZHC"
+    resuming: false
+    agentName: ""
+Worker starting to load...
+LIVEKIT_URL: ws://localhost:7880
+🔥 Worker prewarm called. Pre-loading heavy modules...
+🚀 Worker ENTRY called - Dispatch received!
+Job Context: { roomName: undefined, jobId: 'AJ_vVQJiWYkkZHC' }
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+[22:29:21.773] [33mWARN[39m (3225): [36mroom not connect after job_entry was called after 10 seconds, [39m
+    jobID: "AJ_vVQJiWYkkZHC"
+Modules loaded (from cache).
+✅ Connected to room. Waiting for participant...
+👤 Participant joined: test@gmail.com
+✅ Prewarm complete - all modules cached.
+🤖 Detected agentId: none (using defaults)
+🎙️ Agent: Default | Lang: hi | Voice: hi_IN-pratham-medium
+🎤 Using Voice Engine: piper (piper)
+🔊 Using Piper TTS: hi_IN-pratham-medium
+Starting agent session...
+{"level":40,"time":1772211562833,"pid":3225,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":40,"time":1772211562856,"pid":3225,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":30,"time":1772211562861,"pid":3225,"hostname":"RKs-MacBook-Pro.local","participantValue":"test@gmail.com","trackPublications":[{"info":{"sid":"TR_AMjDFepLgyVLaW","name":"","kind":"KIND_AUDIO","source":"SOURCE_MICROPHONE","simulcasted":false,"width":0,"height":0,"mimeType":"audio/red","muted":false,"remote":true,"encryptionType":"NONE","audioFeatures":["TF_AUTO_GAIN_CONTROL","TF_ECHO_CANCELLATION","TF_NOISE_SUPPRESSION"]},"ffiHandle":{},"subscribed":true,"track":{"info":{"sid":"TR_AMjDFepLgyVLaW","name":"","kind":"KIND_AUDIO","streamState":"STATE_ACTIVE","muted":false,"remote":true},"ffi_handle":{}}}],"lengthOfTrackPublications":1,"msg":"participantValue.trackPublications"}
+🤖 Agent State Changed: listening
+Agent session started!
+Attempting to say greeting...
+[22:29:22.049] [34mDEBUG[39m (lk-rtc/3225): [36mConnect callback received[39m
+Greeting sent!
+[22:29:26.981] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 481
+[22:29:26.987] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 484
+[22:29:26.995] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 459
+[22:29:27.002] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 464
+[22:29:27.012] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 440
+[22:29:27.020] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 447
+[22:29:27.029] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 420
+[22:29:27.034] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 427
+[22:29:27.042] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 398
+[22:29:27.046] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 403
+[22:29:27.056] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 378
+[22:29:27.063] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 386
+[22:29:27.072] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 358
+[22:29:27.077] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 365
+[22:29:27.083] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 334
+[22:29:27.087] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 341
+[22:29:27.092] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 309
+[22:29:27.096] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 315
+[22:29:27.100] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 283
+[22:29:27.104] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 290
+[22:29:27.112] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 261
+[22:29:27.122] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 274
+[22:29:27.134] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 248
+[22:29:27.139] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 257
+[22:29:27.145] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 224
+[22:29:27.149] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 233
+[22:29:27.159] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 208
+👤 User State Changed: away
+🤖 Agent State Changed: speaking
+[22:29:43.883] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 453
+[22:29:43.887] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 451
+[22:29:43.904] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 441
+[22:29:43.908] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 437
+[22:29:43.921] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 424
+[22:29:43.929] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 424
+[22:29:43.943] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 408
+[22:29:43.948] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 408
+[22:29:43.959] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 387
+[22:29:43.965] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 391
+[22:29:43.973] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 366
+[22:29:43.982] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 373
+[22:29:43.997] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 352
+[22:29:44.009] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 364
+[22:29:44.019] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 338
+[22:29:44.029] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 350
+[22:29:44.045] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 331
+[22:29:44.053] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 339
+[22:29:44.072] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 323
+[22:29:44.080] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 330
+[22:29:44.084] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 296
+[22:29:44.089] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 305
+[22:29:44.098] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 277
+[22:29:44.102] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 283
+[22:29:44.104] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 249
+[22:29:44.110] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 258
+[22:29:44.126] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 238
+[22:29:44.131] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 244
+[22:29:44.143] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 220
+[22:29:44.146] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 223
+[22:29:45.250] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 251
+[22:29:45.282] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 299
+[22:29:45.396] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 341
+[22:29:45.410] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 378
+[22:29:45.432] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 340
+[22:29:45.447] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 379
+[22:29:45.550] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 418
+[22:29:45.567] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 464
+[22:29:45.612] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 445
+[22:29:45.617] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 455
+[22:29:45.624] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 423
+[22:29:45.632] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 435
+[22:29:45.648] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 411
+[22:29:45.653] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 422
+[22:29:45.664] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 392
+[22:29:45.670] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 404
+[22:29:45.682] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 376
+[22:29:45.687] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 387
+[22:29:45.698] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 358
+[22:29:45.703] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 368
+[22:29:45.715] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 341
+[22:29:45.723] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 354
+[22:29:45.734] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 323
+[22:29:45.744] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 339
+[22:29:45.754] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 307
+[22:29:45.763] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 323
+[22:29:45.779] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 298
+[22:29:45.785] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 308
+[22:29:45.802] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 286
+[22:29:45.807] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 294
+[22:29:45.816] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 266
+[22:29:45.822] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 274
+[22:29:45.835] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 250
+[22:29:45.966] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 383
+[22:29:46.031] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 336
+[22:29:46.042] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 423
+[22:29:46.058] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 326
+[22:29:46.063] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 409
+[22:29:46.086] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 319
+[22:29:46.093] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 400
+[22:29:46.106] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 304
+[22:29:46.113] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 385
+[22:29:46.128] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 290
+[22:29:46.135] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 372
+[22:29:46.155] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 282
+[22:29:46.162] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 364
+[22:29:46.178] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 268
+[22:29:46.184] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 352
+[22:29:46.198] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 253
+[22:29:46.213] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 344
+[22:29:46.224] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 242
+[22:29:46.231] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 328
+[22:29:46.255] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 238
+[22:29:46.266] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 328
+[22:29:46.301] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 244
+[22:29:46.313] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 340
+[22:29:46.345] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 252
+[22:29:46.352] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 344
+[22:29:46.372] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 244
+[22:29:46.383] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 339
+[22:29:46.401] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 232
+[22:29:46.413] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 334
+[22:29:46.429] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 225
+[22:29:46.435] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 321
+[22:29:46.448] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 209
+[22:29:46.456] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 305
+[22:29:46.547] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 272
+[22:29:46.570] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 383
+[22:29:46.618] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 301
+[22:29:46.623] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 395
+[22:29:46.636] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 284
+[22:29:46.643] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 377
+[22:29:46.654] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 268
+[22:29:46.661] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 360
+[22:29:46.672] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 250
+[22:29:46.678] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 343
+[22:29:46.684] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 227
+[22:29:46.691] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 322
+[22:29:46.704] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 212
+[22:29:46.712] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 308
+[22:29:46.729] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 288
+[22:29:46.745] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 269
+[22:29:46.761] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 248
+[22:29:46.784] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 237
+[22:29:46.804] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 223
+[22:29:46.824] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 206
+🤖 Agent State Changed: listening
+[22:30:12.485] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 569
+[22:30:13.734] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1725
+[22:30:13.753] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1802
+[22:30:13.805] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1761
+[22:30:13.815] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1829
+[22:30:13.856] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1774
+[22:30:13.868] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1848
+[22:30:13.904] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1787
+[22:30:13.989] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1935
+[22:30:15.827] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3674
+[22:30:15.850] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3761
+[22:30:15.862] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3673
+[22:30:15.872] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3748
+[22:30:15.881] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3656
+[22:30:15.902] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3743
+[22:30:15.935] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3669
+[22:30:15.942] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3739
+[22:30:15.981] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3678
+[22:30:15.986] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3742
+[22:30:16.004] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3667
+[22:30:16.030] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3751
+[22:30:16.051] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3660
+[22:30:16.063] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3742
+[22:30:16.099] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3674
+[22:30:16.104] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3747
+[22:30:16.113] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3653
+[22:30:16.119] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3727
+[22:30:16.130] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3636
+[22:30:16.137] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3711
+[22:30:16.148] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3619
+[22:30:16.154] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3690
+[22:30:16.162] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3598
+[22:30:16.167] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3669
+[22:30:16.178] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3580
+[22:30:16.183] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3648
+[22:30:16.191] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3559
+[22:30:16.200] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3631
+[22:30:16.212] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3544
+[22:30:16.218] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3611
+[22:30:16.224] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3521
+[22:30:16.230] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3589
+[22:30:16.240] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3504
+[22:30:16.249] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3572
+[22:30:16.282] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3510
+[22:30:16.287] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3575
+[22:30:16.296] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3490
+[22:30:16.305] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3557
+[22:30:16.363] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3518
+[22:30:16.371] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3588
+[22:30:16.403] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3523
+[22:30:16.414] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3596
+[22:30:16.421] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3507
+[22:30:16.428] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3576
+[22:30:16.463] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3514
+[22:30:16.472] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3581
+[22:30:16.480] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3497
+[22:30:16.484] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3559
+[22:30:16.492] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3475
+[22:30:16.499] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3540
+[22:30:16.510] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3457
+[22:30:16.515] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3520
+[22:30:16.522] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3434
+[22:30:16.526] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3495
+[22:30:16.534] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3412
+[22:30:16.539] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3474
+[22:30:16.546] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3389
+[22:30:16.551] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3452
+[22:30:16.566] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3375
+[22:30:16.571] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3437
+[22:30:16.579] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3353
+[22:30:16.583] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3414
+[22:30:16.594] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3334
+[22:30:16.600] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3397
+[22:30:16.610] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3316
+[22:30:16.622] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3384
+[22:30:16.629] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3300
+[22:30:16.636] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3363
+[22:30:16.646] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3281
+[22:30:16.652] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3344
+[22:30:16.660] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3261
+[22:30:16.665] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3322
+[22:30:16.675] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3241
+[22:30:16.687] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3308
+[22:30:16.699] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3224
+[22:30:16.703] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3289
+[22:30:16.711] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3202
+[22:30:16.717] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3269
+[22:30:16.723] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3180
+[22:30:16.731] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3248
+[22:30:16.764] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3184
+[22:30:16.774] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3241
+[22:30:16.784] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3167
+[22:30:16.813] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3245
+[22:30:16.842] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3182
+[22:30:16.848] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3246
+[22:30:16.864] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3168
+[22:30:16.872] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3234
+[22:30:16.881] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3149
+[22:30:16.885] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3212
+[22:30:16.893] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3126
+[22:30:16.899] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3191
+[22:30:16.905] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3103
+[22:30:16.911] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3170
+[22:30:16.927] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3090
+[22:30:16.934] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3158
+[22:30:16.944] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3072
+[22:30:16.949] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3139
+[22:30:16.958] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3051
+[22:30:16.964] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3119
+[22:30:16.972] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3029
+[22:30:17.064] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3184
+[22:30:17.139] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3105
+[22:30:17.193] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3239
+[22:30:17.232] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3164
+[22:30:17.241] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3249
+[22:30:17.248] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3144
+[22:30:17.255] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3229
+[22:30:17.260] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3121
+[22:30:17.265] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3205
+[22:30:17.273] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3100
+[22:30:17.283] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3188
+[22:30:17.292] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3081
+[22:30:17.297] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3167
+[22:30:17.303] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3057
+[22:30:17.307] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3143
+[22:30:17.319] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3039
+[22:30:17.323] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3122
+[22:30:17.327] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3013
+[22:30:17.331] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3096
+[22:30:17.334] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2986
+[22:30:17.345] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3073
+[22:30:17.354] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2971
+[22:30:17.359] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3052
+[22:30:17.368] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2950
+[22:30:17.375] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3033
+[22:30:17.383] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2931
+[22:30:17.388] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 3011
+[22:30:17.393] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2907
+[22:30:17.401] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2991
+[22:30:17.412] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2891
+[22:30:17.417] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2973
+[22:30:17.425] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2870
+[22:30:17.431] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2953
+[22:30:17.441] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2852
+[22:30:17.447] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2934
+[22:30:17.451] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2827
+[22:30:17.455] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2908
+[22:30:17.466] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2808
+[22:30:17.477] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2897
+[22:30:17.498] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2803
+[22:30:17.506] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2889
+[22:30:17.514] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2783
+[22:30:17.521] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2869
+[22:30:17.531] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2765
+[22:30:17.536] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2849
+[22:30:17.544] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2744
+[22:30:17.548] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2827
+[22:30:17.555] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2721
+[22:30:17.566] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2810
+[22:30:17.578] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2708
+[22:30:17.583] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2791
+[22:30:17.591] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2687
+[22:30:17.596] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2769
+[22:30:17.604] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2666
+[22:30:17.608] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2746
+[22:30:17.615] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2643
+[22:30:17.620] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2722
+[22:30:17.628] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2622
+[22:30:17.631] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2697
+[22:30:17.634] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2594
+[22:30:17.637] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2670
+[22:30:17.644] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2570
+[22:30:17.649] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2647
+[22:30:17.657] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2549
+[22:30:17.662] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2624
+[22:30:17.671] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2529
+[22:30:17.674] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2600
+[22:30:17.678] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2503
+[22:30:17.682] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2574
+[22:30:17.687] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2478
+[22:30:17.690] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2548
+[22:30:17.694] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2451
+[22:30:17.698] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2522
+[22:30:17.707] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2430
+[22:30:17.712] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2502
+[22:30:17.719] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2409
+[22:30:17.725] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2481
+[22:30:17.734] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2389
+[22:30:17.739] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2459
+[22:30:17.747] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2367
+[22:30:17.752] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2439
+[22:30:17.759] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2343
+[22:30:17.765] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2418
+[22:30:17.780] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2330
+[22:30:17.787] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2405
+[22:30:17.795] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2308
+[22:30:17.799] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2382
+[22:30:17.811] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2291
+[22:30:17.816] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2362
+[22:30:17.829] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2274
+[22:30:17.837] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2349
+[22:30:17.846] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2256
+[22:30:17.851] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2328
+[22:30:17.857] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2233
+[22:30:17.864] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2307
+[22:30:17.873] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2214
+[22:30:17.878] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2285
+[22:30:17.890] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2197
+[22:30:17.895] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2267
+[22:30:17.900] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2173
+[22:30:17.904] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2242
+[22:30:17.909] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2148
+[22:30:17.914] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2218
+[22:30:17.920] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2125
+[22:30:17.924] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2194
+[22:30:17.932] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2103
+[22:30:17.936] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2171
+[22:30:17.941] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2078
+[22:30:17.945] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2146
+[22:30:17.949] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2052
+[22:30:17.953] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2121
+[22:30:17.958] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2027
+[22:30:17.963] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2097
+[22:30:17.970] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2004
+[22:30:17.974] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2073
+[22:30:17.979] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1979
+[22:30:17.983] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2047
+[22:30:17.988] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1955
+[22:30:17.992] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 2022
+[22:30:17.997] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1929
+[22:30:18.001] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1996
+[22:30:18.008] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1906
+[22:30:18.013] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1974
+[22:30:18.019] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1883
+[22:30:18.024] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1951
+[22:30:18.030] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1860
+[22:30:18.034] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1928
+[22:30:18.041] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1837
+[22:30:18.046] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1906
+[22:30:18.053] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1815
+[22:30:18.058] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1883
+[22:30:18.068] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1795
+[22:30:18.074] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1863
+[22:30:18.082] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1774
+[22:30:18.087] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1841
+[22:30:18.093] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1751
+[22:30:18.095] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1815
+[22:30:18.100] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1725
+[22:30:18.106] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1792
+[22:30:18.119] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1710
+[22:30:18.125] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1773
+[22:30:18.132] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1688
+[22:30:18.137] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1750
+[22:30:18.144] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1664
+[22:30:18.149] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1729
+[22:30:18.156] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1640
+[22:30:18.158] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1704
+[22:30:18.173] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1623
+[22:30:18.176] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1686
+[22:30:18.180] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1597
+[22:30:18.183] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1659
+[22:30:18.190] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1574
+[22:30:18.196] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1637
+[22:30:18.202] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1551
+[22:30:18.206] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1612
+[22:30:18.213] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1528
+[22:30:18.219] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1590
+[22:30:18.223] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1504
+[22:30:18.228] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1565
+[22:30:18.236] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1483
+[22:30:18.241] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1543
+[22:30:18.245] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1458
+[22:30:18.250] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1518
+[22:30:18.255] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1433
+[22:30:18.258] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1492
+[22:30:18.268] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1412
+[22:30:18.274] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1474
+[22:30:18.288] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1398
+[22:30:18.296] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1459
+[22:30:18.311] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1386
+[22:30:18.316] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1444
+[22:30:18.322] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1363
+[22:30:18.329] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1422
+[22:30:18.334] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1341
+[22:30:18.339] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1398
+[22:30:18.344] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1316
+[22:30:18.349] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1374
+[22:30:18.355] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1293
+[22:30:18.360] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1351
+[22:30:18.371] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1274
+[22:30:18.375] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1332
+[22:30:18.379] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1247
+[22:30:18.382] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1305
+[22:30:18.388] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1222
+[22:30:18.391] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1279
+[22:30:18.395] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1195
+[22:30:18.398] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1252
+[22:30:18.403] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1169
+[22:30:18.407] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1228
+[22:30:18.415] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1148
+[22:30:18.420] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1205
+[22:30:18.426] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1125
+[22:30:18.430] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1179
+[22:30:18.434] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1099
+[22:30:18.437] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1153
+[22:30:18.444] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1075
+[22:30:18.448] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1130
+[22:30:18.452] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1049
+[22:30:18.455] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1103
+[22:30:18.461] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1024
+[22:30:18.470] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1084
+[22:30:18.479] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1006
+[22:30:18.483] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1062
+[22:30:18.488] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 981
+[22:30:18.491] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1036
+[22:30:18.494] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 953
+[22:30:18.498] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 1010
+[22:30:18.503] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 928
+[22:30:18.505] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 984
+[22:30:18.511] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 903
+[22:30:18.516] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 961
+[22:30:18.525] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 883
+[22:30:18.530] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 939
+[22:30:18.540] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 864
+[22:30:18.545] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 920
+[22:30:18.548] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 837
+[22:30:18.552] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 894
+[22:30:18.561] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 815
+[22:30:18.565] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 873
+[22:30:18.573] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 793
+[22:30:18.581] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 854
+[22:30:18.591] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 777
+[22:30:18.597] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 835
+[22:30:18.601] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 751
+[22:30:18.604] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 809
+[22:30:18.609] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 725
+[22:30:18.616] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 787
+[22:30:18.622] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 702
+[22:30:18.625] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 763
+[22:30:18.631] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 677
+[22:30:18.636] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 739
+[22:30:18.642] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 654
+[22:30:18.647] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 715
+[22:30:18.654] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 632
+[22:30:18.658] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 691
+[22:30:18.665] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 608
+[22:30:18.672] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 670
+[22:30:18.677] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 585
+[22:30:18.680] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 645
+[22:30:18.683] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 557
+[22:30:18.686] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 617
+[22:30:18.698] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 538
+[22:30:18.705] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 602
+[22:30:18.713] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 518
+[22:30:18.718] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 579
+[22:30:18.723] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 494
+[22:30:18.727] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 555
+[22:30:18.731] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 468
+[22:30:18.734] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 528
+[22:30:18.738] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 441
+[22:30:18.741] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 501
+[22:30:18.749] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 418
+[22:30:18.756] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 482
+[22:30:18.769] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 402
+[22:30:18.773] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 461
+[22:30:18.777] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 376
+[22:30:18.781] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 435
+[22:30:18.785] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 350
+[22:30:18.789] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 409
+[22:30:18.794] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 325
+[22:30:18.797] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 383
+[22:30:18.802] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 299
+[22:30:18.808] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 360
+[22:30:18.816] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 279
+[22:30:18.824] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 340
+[22:30:18.833] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 260
+[22:30:18.836] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 318
+[22:30:18.842] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 235
+[22:30:18.845] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 293
+[22:30:18.850] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 209
+[22:30:18.853] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 267
+[22:30:18.865] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 245
+[22:30:18.878] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 223
+[22:30:51.113] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 236
+[22:30:51.168] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 254
+[22:30:51.174] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 262
+[22:30:51.183] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 234
+[22:30:51.194] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 248
+[22:30:51.204] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 220
+[22:30:51.215] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 234
+[22:30:51.232] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 212
+[22:30:51.251] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 233
+[22:30:51.550] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 496
+[22:30:51.563] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 494
+[22:30:51.575] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 486
+[22:30:51.581] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 475
+[22:30:51.596] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 473
+[22:30:51.602] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 463
+[22:30:51.633] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 476
+[22:30:51.638] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 460
+[22:30:51.651] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 459
+[22:30:51.655] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 444
+[22:30:51.663] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 437
+[22:30:51.673] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 428
+[22:30:51.684] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 421
+[22:30:51.690] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 410
+[22:30:51.704] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 406
+[22:30:51.715] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 401
+[22:30:51.728] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 390
+[22:30:51.732] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 382
+[22:30:51.818] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 447
+[22:30:51.823] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 439
+[22:30:51.830] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 424
+[22:30:51.837] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 418
+[22:30:51.852] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 411
+[22:30:51.860] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 405
+[22:30:51.874] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 398
+[22:30:51.882] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 391
+[22:30:51.895] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 382
+[22:30:51.902] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 377
+[22:30:51.912] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 363
+[22:30:51.916] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 356
+[22:30:51.929] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 346
+[22:30:51.934] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 339
+[22:30:51.946] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 328
+[22:30:51.953] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 323
+[22:30:51.966] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 314
+[22:30:51.972] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 307
+[22:30:51.979] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 292
+[22:30:51.984] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 284
+[22:30:51.993] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 272
+[22:30:51.997] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 263
+[22:30:52.000] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 245
+[22:30:52.010] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 242
+[22:30:52.019] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 227
+[22:30:52.033] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 229
+[22:30:52.039] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 212
+[22:30:52.042] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 203
+[22:31:00.230] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 253
+[22:31:00.242] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 258
+[22:31:00.254] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 238
+[22:31:00.283] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 262
+[22:31:00.294] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 243
+[22:31:00.299] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 244
+[22:31:00.305] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 221
+[22:31:00.310] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 220
+[22:31:01.598] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 217
+[22:31:01.912] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 535
+[22:31:01.921] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 493
+{"level":30,"time":1772211662261,"pid":3225,"hostname":"RKs-MacBook-Pro.local","participant":"test@gmail.com","reason":"CLIENT_INITIATED","msg":"closing agent session due to participant disconnect (disable via `RoomInputOptions.closeOnDisconnect=False`)"}
+{"level":30,"time":1772211662266,"pid":3225,"hostname":"RKs-MacBook-Pro.local","msg":"mainTask: draining and no more speech tasks"}
+{"level":30,"time":1772211662266,"pid":3225,"hostname":"RKs-MacBook-Pro.local","msg":"AgentActivity mainTask: exiting"}
+{"level":30,"time":1772211662284,"pid":3225,"hostname":"RKs-MacBook-Pro.local","reason":"participant_disconnected","error":null,"msg":"AgentSession closed"}
+[22:31:02.291] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 880
+[22:31:02.294] [33mWARN[39m (3225): [36minference is slower than realtime[39m
+    delay: 831
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+[23:20:02.509] [32mINFO[39m (2132): [36mreceived job request[39m
+    version: "0.1.0"
+    jobId: "AJ_2gzDvCea9vhU"
+    resuming: false
+    agentName: ""
+Worker starting to load...
+LIVEKIT_URL: ws://localhost:7880
+🔥 Worker prewarm called. Pre-loading heavy modules...
+🚀 Worker ENTRY called - Dispatch received!
+Job Context: { roomName: undefined, jobId: 'AJ_2gzDvCea9vhU' }
+[23:20:25.701] [33mWARN[39m (5608): [36mroom not connect after job_entry was called after 10 seconds, [39m
+    jobID: "AJ_2gzDvCea9vhU"
+Modules loaded (from cache).
+✅ Connected to room. Waiting for participant...
+👤 Participant joined: test@gmail.com
+✅ Prewarm complete - all modules cached.
+🤖 Detected agentId: 299e10d4-04cb-49f4-a96f-ece30674e51f
+[23:20:25.989] [34mDEBUG[39m (lk-rtc/5608): [36mConnect callback received[39m
+🎙️ Agent: Telugu Support Agent | Lang: te | Voice: te_IN-padmavathi-medium
+🎤 Using Voice Engine: piper (piper)
+🔊 Using Piper TTS: te_IN-padmavathi-medium
+Starting agent session...
+{"level":40,"time":1772214626881,"pid":5608,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":40,"time":1772214626903,"pid":5608,"hostname":"RKs-MacBook-Pro.local","msg":"JobContext is not available"}
+{"level":30,"time":1772214626906,"pid":5608,"hostname":"RKs-MacBook-Pro.local","participantValue":"test@gmail.com","trackPublications":[{"info":{"sid":"TR_AMvjfVTWj43d82","name":"","kind":"KIND_AUDIO","source":"SOURCE_MICROPHONE","simulcasted":false,"width":0,"height":0,"mimeType":"audio/red","muted":false,"remote":true,"encryptionType":"NONE","audioFeatures":["TF_AUTO_GAIN_CONTROL","TF_ECHO_CANCELLATION","TF_NOISE_SUPPRESSION"]},"ffiHandle":{},"subscribed":true,"track":{"info":{"sid":"TR_AMvjfVTWj43d82","name":"","kind":"KIND_AUDIO","streamState":"STATE_ACTIVE","muted":false,"remote":true},"ffi_handle":{}}}],"lengthOfTrackPublications":1,"msg":"participantValue.trackPublications"}
+🤖 Agent State Changed: listening
+Agent session started!
+Attempting to say greeting...
+Greeting sent!
+👤 User State Changed: away
+👤 User State Changed: speaking
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772214683161,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772214691665,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+{"level":50,"time":1772214694116,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772214695516,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: away
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772214760648,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: speaking
+👤 User State Changed: listening
+👤 User State Changed: speaking
+{"level":50,"time":1772214774288,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: listening
+{"level":50,"time":1772214776573,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+👤 User State Changed: away
+👤 User State Changed: speaking
+👤 User State Changed: listening
+{"level":50,"time":1772214817849,"pid":5608,"hostname":"RKs-MacBook-Pro.local","error":"404 status code (no body)","msg":"stt.StreamAdapterWrapper<openai.STT>: provider recognize task failed"}
+{"level":30,"time":1772214820352,"pid":5608,"hostname":"RKs-MacBook-Pro.local","participant":"test@gmail.com","reason":"CLIENT_INITIATED","msg":"closing agent session due to participant disconnect (disable via `RoomInputOptions.closeOnDisconnect=False`)"}
+{"level":30,"time":1772214820358,"pid":5608,"hostname":"RKs-MacBook-Pro.local","msg":"mainTask: draining and no more speech tasks"}
+{"level":30,"time":1772214820358,"pid":5608,"hostname":"RKs-MacBook-Pro.local","msg":"AgentActivity mainTask: exiting"}
+{"level":30,"time":1772214820383,"pid":5608,"hostname":"RKs-MacBook-Pro.local","reason":"participant_disconnected","error":null,"msg":"AgentSession closed"}
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
