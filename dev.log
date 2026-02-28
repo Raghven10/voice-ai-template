@@ -3090,3 +3090,136 @@
  ✓ Compiled /favicon.ico in 5.2s (1397 modules)
  GET /api/notifications/stream 200 in 2757811ms
 [SSE] Client disconnected f8e69b69-5302-44fb-9920-9f12d982af15
+ ○ Compiling / ...
+ ✓ Compiled / in 4.3s (1356 modules)
+ GET / 200 in 4780ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 872ms (1779 modules)
+ GET /api/auth/session 200 in 1135ms
+ GET /dashboard 200 in 110ms
+ ○ Compiling /api/notifications/stream ...
+ ✓ Compiled /api/notifications/stream in 1424ms (1793 modules)
+ ✓ Compiled (1857 modules)
+ GET /api/notifications 200 in 3316ms
+[SSE] User f8e69b69-5302-44fb-9920-9f12d982af15 subscribed to notifications:f8e69b69-5302-44fb-9920-9f12d982af15
+ GET /api/voice-agents 200 in 3357ms
+ GET /api/notifications 200 in 20ms
+ GET /api/voice-agents 200 in 23ms
+ GET /dashboard/developer 200 in 61ms
+ ○ Compiling /api/developer/keys ...
+ ✓ Compiled /api/developer/keys in 937ms (1859 modules)
+ ✓ Compiled (1863 modules)
+ GET /api/developer/keys 200 in 2054ms
+ GET /api/developer/resources 200 in 2061ms
+ GET /api/developer/agents 200 in 2077ms
+ GET /api/developer/keys 200 in 31ms
+ GET /api/developer/resources 200 in 36ms
+ GET /api/developer/agents 200 in 26ms
+ GET /dashboard/developer/agents/new 200 in 56ms
+ GET /api/developer/resources 200 in 19ms
+ GET /api/developer/resources 200 in 21ms
+ ○ Compiling /dashboard/knowledge ...
+ ✓ Compiled /dashboard/knowledge in 1619ms (1870 modules)
+ GET /dashboard/knowledge 200 in 1698ms
+ ○ Compiling /api/knowledge/buckets ...
+ GET /api/developer/resources 200 in 725ms
+ ✓ Compiled /api/knowledge/buckets in 1300ms (2005 modules)
+ GET /api/knowledge/buckets 200 in 2180ms
+ GET /api/developer/resources 200 in 1429ms
+ GET /api/knowledge/buckets 200 in 31ms
+Error [InvalidBucketNameError]: Invalid bucket name: New Test
+    at POST (app/api/knowledge/buckets/route.ts:33:41)
+  31 |         if (!bucketName) return NextResponse.json({ error: "Bucket name required" }, { status: 400 });
+  32 |
+> 33 |         const exists = await minioClient.bucketExists(bucketName);
+     |                                         ^
+  34 |         if (exists) return NextResponse.json({ error: "Bucket already exists" }, { status: 400 });
+  35 |
+  36 |         await minioClient.makeBucket(bucketName, "us-east-1");
+ POST /api/knowledge/buckets 500 in 143ms
+Error [InvalidBucketNameError]: Invalid bucket name: New Test
+    at POST (app/api/knowledge/buckets/route.ts:33:41)
+  31 |         if (!bucketName) return NextResponse.json({ error: "Bucket name required" }, { status: 400 });
+  32 |
+> 33 |         const exists = await minioClient.bucketExists(bucketName);
+     |                                         ^
+  34 |         if (exists) return NextResponse.json({ error: "Bucket already exists" }, { status: 400 });
+  35 |
+  36 |         await minioClient.makeBucket(bucketName, "us-east-1");
+ POST /api/knowledge/buckets 500 in 65ms
+ GET /api/notifications 200 in 18ms
+ GET /api/notifications 200 in 27ms
+ ✓ Compiled in 2s (2525 modules)
+ GET /dashboard/knowledge 200 in 95ms
+ ✓ Compiled in 1201ms (2525 modules)
+ GET /dashboard/knowledge 200 in 58ms
+ GET /api/notifications 200 in 158ms
+ GET /dashboard/knowledge 200 in 321ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/auth/[...nextauth] in 2.8s (1380 modules)
+ ✓ Compiled (1580 modules)
+ GET /favicon.ico 200 in 5248ms
+ GET /api/auth/session 200 in 3851ms
+ GET /api/knowledge/buckets 200 in 3877ms
+ GET /api/developer/resources 200 in 3881ms
+[SSE] User f8e69b69-5302-44fb-9920-9f12d982af15 subscribed to notifications:f8e69b69-5302-44fb-9920-9f12d982af15
+ GET /dashboard/knowledge 200 in 219ms
+ GET /dashboard/knowledge 200 in 225ms
+ GET /api/notifications 200 in 37ms
+ GET /api/notifications 200 in 38ms
+ GET /api/notifications 200 in 101ms
+ GET /api/notifications 200 in 33ms
+ GET /api/notifications 200 in 31ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 37ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 31ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 36ms
+ GET /api/notifications 200 in 37ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 32ms
+ GET /api/notifications 200 in 36ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 30ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 33ms
+ GET /api/notifications 200 in 37ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 36ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 33ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 34ms
+ GET /api/notifications 200 in 35ms
+ GET /api/notifications 200 in 39ms
+ GET /api/notifications/stream 200 in 1478443ms
+[SSE] Client disconnected f8e69b69-5302-44fb-9920-9f12d982af15
+ GET /api/notifications 200 in 83ms
+ GET /api/notifications 200 in 68ms
+ POST /api/knowledge/buckets 200 in 166ms
+ GET /api/notifications 200 in 69ms
+ ○ Compiling /api/knowledge/upload ...
+ ✓ Compiled /api/knowledge/upload in 4.9s (2684 modules)
+objc[2090]: Class GNotificationCenterDelegate is implemented in both /Users/rkjha/WebstormProjects/ai-helpdesk/node_modules/@img/sharp-libvips-darwin-x64/lib/libvips-cpp.8.17.1.dylib (0x3c2136b18) and /Users/rkjha/WebstormProjects/ai-helpdesk/node_modules/@xenova/transformers/node_modules/sharp/vendor/8.14.5/darwin-x64/lib/libvips-cpp.42.dylib (0x3c626efa0). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+ GET /dashboard/knowledge 200 in 4920ms
+ POST /api/knowledge/upload 200 in 10775ms
+ ○ Compiling /api/developer/resources ...
+ ✓ Compiled /api/developer/resources in 1141ms (1539 modules)
+ GET /api/notifications 200 in 1977ms
+ GET /api/developer/resources 200 in 2495ms

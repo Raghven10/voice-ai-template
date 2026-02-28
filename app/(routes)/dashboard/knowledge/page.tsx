@@ -64,16 +64,19 @@ export default function KnowledgeBasePage() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ bucketName: newBucketName })
             });
+
+            const data = await res.json();
+
             if (res.ok) {
                 toast.success("Bucket created");
-                setBuckets([...buckets, newBucketName]);
-                setSelectedBucket(newBucketName);
+                setBuckets([...buckets, data.bucketName]);
+                setSelectedBucket(data.bucketName);
                 setIsCreatingBucket(false);
                 setNewBucketName("");
             } else {
-                toast.error("Failed to create bucket");
+                toast.error(data.error || "Failed to create bucket");
             }
-        } catch (e) { console.error(e); }
+        } catch (e) { console.error(e); toast.error("An error occurred"); }
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
